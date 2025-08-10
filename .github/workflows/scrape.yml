@@ -4,29 +4,45 @@ on:
     - cron: '0 5 * * *'   # 07:00 hora España
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # Cache de dependencias Node y navegadores Playwright
+      # ✅ Cache estable de node_modules + navegadores Playwright
       - name: Cache Node modules and Playwright browsers
+        id: cache
         uses: actions/cache@v3
         with:
           path: |
             ~/.cache/ms-playwright
             node_modules
           key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
 
-      # Instalar dependencias si no existen en caché
-      - name: Install dependencies and Playwright
+      # 🛠️ Instalar SOLO si NO hay caché
+      - name: Install dependencies and Playwright (miss)
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          npm ci || npm i
+          npm ci
           npx playwright install --with-deps
+
+      # ⚡ Verificación rápida si SÍ hay caché (no reinstala nada)
+      - name: Verify cache (hit)
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: |
+          echo "✅ Cache hit: usando node_modules y browsers de la caché"
+          node -v && npm -v
+          ls -la ~/.cache/ms-playwright || true
 
       - name: Run scraper
         env:
@@ -36,7 +52,17 @@ jobs:
           PUBLIC_OUT_PATH: ./public/data.json
         run: npm start
 
+      # 🔎 Subir capturas/outputs siempre para depurar
+      - name: Upload public as artifact (debug)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-output
+          path: public
+
+      # 🚀 Publicar solo si todo fue OK
       - name: Deploy to gh-pages
+        if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
