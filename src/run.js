@@ -126,7 +126,11 @@ async function run() {
   });
   const context = await browser.newContext({
     viewport: { width: 1366, height: 850 },
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36'
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36',
+    locale: 'es-ES',
+    extraHTTPHeaders: {
+      'Accept-Language': 'es-ES,es;q=0.9'
+    }
   });
   const page = await context.newPage();
 
