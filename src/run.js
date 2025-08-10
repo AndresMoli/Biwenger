@@ -14,7 +14,8 @@ if (!BIWENGER_EMAIL || !BIWENGER_PASSWORD || !LIGA_ID) {
   process.exit(1);
 }
 
-const OUT_DIR = (PUBLIC_OUT_PATH && path.dirname(PUBLIC_OUT_PATH)) || './public';
+const OUT_PATH = PUBLIC_OUT_PATH || './public/data.json';
+const OUT_DIR  = path.dirname(OUT_PATH);
 
 async function saveShot(page, name) {
   try {
@@ -24,71 +25,58 @@ async function saveShot(page, name) {
 }
 
 async function acceptCookies(page) {
-  const selectors = [
+  const sels = [
     'button:has-text("Aceptar")',
     'button:has-text("Acepto")',
     'button:has-text("Aceptar y cerrar")',
     'button:has-text("Consent")',
     'button:has-text("Agree")',
-    '[aria-label*="acept"]',
-    '[id*="didomi"][id*="accept"]',
+    '[aria-label*="acept" i]',
+    '[id*="didomi"][id*="accept" i]',
+    'button[aria-label*="Accept" i]',
   ];
-  for (const sel of selectors) {
-    const el = page.locator(sel);
-    if (await el.first().isVisible().catch(()=>false)) {
-      try { await el.first().click({ timeout: 1000 }); break; } catch {}
+  for (const s of sels) {
+    const el = page.locator(s).first();
+    if (await el.isVisible().catch(()=>false)) {
+      try { await el.click({ timeout: 1000 }); break; } catch {}
     }
   }
 }
 
 async function fillLogin(page) {
-  // Ir directamente al login
-  await page.goto('https://biwenger.as.com/app/#/login', { waitUntil: 'networkidle' });
+  // Ir a la pantalla REAL de login (gracias por la URL)
+  await page.goto('https://biwenger.as.com/login', { waitUntil: 'networkidle' });
   await acceptCookies(page);
 
   const emailSel = 'input[type="email"], input[name="email"], input[placeholder*="email" i]';
   const passSel  = 'input[type="password"], input[name="password"], input[placeholder*="contraseña" i]';
+  const submitSel = 'button[type="submit"], button:has-text("Entrar"), button:has-text("Iniciar sesión")';
 
-  await page.waitForSelector(emailSel, { timeout: 15000 });
-  await page.fill(emailSel, BIWENGER_EMAIL, { timeout: 10000 });
+  await page.waitForSelector(emailSel, { timeout: 20000 });
+  await page.fill(emailSel, BIWENGER_EMAIL);
 
-  await page.waitForSelector(passSel, { timeout: 15000 });
-  await page.fill(passSel, BIWENGER_PASSWORD, { timeout: 10000 });
+  await page.waitForSelector(passSel, { timeout: 20000 });
+  await page.fill(passSel, BIWENGER_PASSWORD);
 
-  // Botón de enviar (varios posibles)
-  const submitCandidates = [
-    'button[type="submit"]',
-    'button:has-text("Entrar")',
-    'button:has-text("Iniciar sesión")',
-    'form button',
-  ];
-  for (const sel of submitCandidates) {
-    const btn = page.locator(sel).first();
-    if (await btn.isVisible().catch(()=>false)) {
-      try { await btn.click({ timeout: 5000 }); break; } catch {}
-    }
-  }
-
-  // Alternativa: enter en password
+  // Click en el botón o Enter
+  try { await page.click(submitSel, { timeout: 10000 }); } catch {}
   try { await page.locator(passSel).press('Enter'); } catch {}
 
-  // Esperar a que ya no estemos en la ruta de login
+  // Esperar a salir del login
   await page.waitForLoadState('networkidle');
   await page.waitForTimeout(1500);
   if ((await page.url()).includes('/login')) {
-    throw new Error('Login no completado (seguimos en /login).');
+    throw new Error('Login no completado: seguimos en /login');
   }
 }
 
 async function gotoLeague(page) {
-  // Ir a la liga por id y esperar que cargue
+  // Cargar la liga por ID
   await page.goto(`https://biwenger.as.com/app/#/league/${LIGA_ID}`, { waitUntil: 'networkidle' });
-  // Esperar algo típico de una liga (cabecera, tabs…)
   await page.waitForTimeout(1000);
 }
 
-async function gotoTab(page, text, hrefPart) {
-  // Click por href o por texto (según esté renderizado)
+async function openTab(page, text, hrefPart) {
   const options = [
     `a[href*="${hrefPart}"]`,
     `a:has-text("${text}")`,
@@ -98,30 +86,27 @@ async function gotoTab(page, text, hrefPart) {
   for (const sel of options) {
     const loc = page.locator(sel).first();
     if (await loc.isVisible().catch(()=>false)) {
-      try { await loc.click({ timeout: 5000 }); break; } catch {}
+      try { await loc.click({ timeout: 6000 }); break; } catch {}
     }
   }
   await page.waitForLoadState('networkidle');
   await page.waitForTimeout(800);
 }
 
-async function scrapeList(page, selectorCandidates, mapper) {
-  // Esperar a que exista al menos uno de los candidatos
-  let found = false;
+async function scrapeList(page, selectorCandidates) {
+  // Esperar a que exista alguno de los selectores candidatos
+  let ok = false;
   for (const sel of selectorCandidates) {
-    try {
-      await page.waitForSelector(sel, { timeout: 15000 });
-      found = true; break;
-    } catch {}
+    try { await page.waitForSelector(sel, { timeout: 15000 }); ok = true; break; } catch {}
   }
-  if (!found) return [];
+  if (!ok) return [];
 
   return page.evaluate((sels) => {
-    const selectAll = (sel) => Array.from(document.querySelectorAll(sel));
+    const pick = (sel) => Array.from(document.querySelectorAll(sel));
     let nodes = [];
-    for (const sel of sels) {
+    for (const s of sels) {
+      nodes = pick(s);
       if (nodes.length) break;
-      nodes = selectAll(sel);
     }
     const parsePrice = (s) => {
       const m = String(s||'').match(/(\d[\d\.]*)(?:\s?€| M| M€)?/i);
@@ -164,25 +149,25 @@ async function scrape() {
     await fillLogin(page);
     console.log('✅ Login ok');
 
-    console.log('➡️ Abriendo liga…');
+    console.log('➡️ Cargando liga…');
     await gotoLeague(page);
 
     console.log('➡️ Equipo…');
-    await gotoTab(page, 'Equipo', 'team');
-    const equipo = await scrapeList(
-      page,
-      ['[class*="player"]', '[class*="card"]', '[class*="lineup"]'],
-      null
-    );
+    await openTab(page, 'Equipo', 'team');
+    const equipo = await scrapeList(page, [
+      '[class*="player"]',
+      '[class*="card"]',
+      '[class*="lineup"]'
+    ]);
     console.log(`✅ Equipo: ${equipo.length}`);
 
     console.log('➡️ Mercado…');
-    await gotoTab(page, 'Mercado', 'market');
-    const mercado = await scrapeList(
-      page,
-      ['table tr', '[class*="market"] [class*="row"]', '[class*="market"] [class*="item"]'],
-      null
-    );
+    await openTab(page, 'Mercado', 'market');
+    const mercado = await scrapeList(page, [
+      'table tr',
+      '[class*="market"] [class*="row"]',
+      '[class*="market"] [class*="item"]'
+    ]);
     console.log(`✅ Mercado: ${mercado.length}`);
 
     // Saldo (best-effort)
@@ -197,15 +182,13 @@ async function scrape() {
       scrapedAt: new Date().toISOString(),
       leagueId: LIGA_ID,
       balance: saldo,
-      team: equipo.map(o => ({...o, source: 'equipo'})),
-      market: mercado.map(o => ({...o, source: 'mercado'}))
+      team: equipo.map(o => ({ ...o, source: 'equipo' })),
+      market: mercado.map(o => ({ ...o, source: 'mercado' }))
     };
 
-    const outPath = PUBLIC_OUT_PATH || './public/data.json';
-    fs.mkdirSync(path.dirname(outPath), { recursive: true });
-    fs.writeFileSync(outPath, JSON.stringify(payload, null, 2));
-    console.log(`💾 Guardado en ${outPath}`);
-
+    fs.mkdirSync(OUT_DIR, { recursive: true });
+    fs.writeFileSync(OUT_PATH, JSON.stringify(payload, null, 2));
+    console.log(`💾 Guardado en ${OUT_PATH}`);
   } catch (e) {
     console.error('❌ Error en scraping:', e?.message || e);
     await saveShot(page, 'error');
