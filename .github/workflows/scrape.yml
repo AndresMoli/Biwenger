@@ -13,8 +13,17 @@ jobs:
         with:
           node-version: '20'
 
-      # Instalar Playwright con todas sus dependencias del sistema
-      - name: Install Playwright with dependencies
+      # Cache de dependencias Node y navegadores Playwright
+      - name: Cache Node modules and Playwright browsers
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/ms-playwright
+            node_modules
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
+
+      # Instalar dependencias si no existen en caché
+      - name: Install dependencies and Playwright
         run: |
           npm ci || npm i
           npx playwright install --with-deps
