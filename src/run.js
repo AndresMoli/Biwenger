@@ -3,7 +3,6 @@ import fs from 'fs';
 import path from 'path';
 
 const { BIWENGER_EMAIL, BIWENGER_PASSWORD, LIGA_ID, PUBLIC_OUT_PATH } = process.env;
-
 if (!BIWENGER_EMAIL || !BIWENGER_PASSWORD || !LIGA_ID) {
   console.error("Faltan BIWENGER_EMAIL, BIWENGER_PASSWORD o LIGA_ID");
   process.exit(1);
@@ -18,106 +17,66 @@ async function snap(page, name) {
   try { await page.screenshot({ path: path.join(OUT_DIR, `${name}.png`), fullPage: true }); } catch {}
 }
 
-async function clickMany(pageOrFrame, selectors, timeout = 3000) {
-  for (const s of selectors) {
-    const el = pageOrFrame.locator(s).first();
-    if (await el.isVisible().catch(()=>false)) {
-      try { await el.click({ timeout }); return true; } catch {}
-    }
-  }
+async function clickIfVisible(page, selector, timeout = 6000) {
+  const el = page.locator(selector).first();
+  if (await el.isVisible().catch(()=>false)) { await el.click({ timeout }); return true; }
   return false;
-}
-
-async function acceptCookiesEverywhere(page) {
-  const sels = [
-    'button:has-text("Aceptar")','button:has-text("Acepto")','button:has-text("Aceptar y cerrar")',
-    'button:has-text("Agree")','button:has-text("Consent")','[aria-label*="acept" i]',
-    '[id*="didomi"][id*="accept" i]'
-  ];
-  await clickMany(page, sels).catch(()=>{});
-  for (const f of page.frames()) await clickMany(f, sels).catch(()=>{});
-}
-
-async function waitFillAnyFrame(page, selector, value, totalMs = 30000) {
-  const t0 = Date.now();
-  while (Date.now() - t0 < totalMs) {
-    // principal
-    try {
-      const el = page.locator(selector).first();
-      if (await el.isVisible({ timeout: 500 }).catch(()=>false)) { await el.fill(value, { timeout: 1000 }); return true; }
-    } catch {}
-    // iframes
-    for (const f of page.frames()) {
-      try {
-        const el = f.locator(selector).first();
-        if (await el.isVisible({ timeout: 200 }).catch(()=>false)) { await el.fill(value, { timeout: 800 }); return true; }
-      } catch {}
-    }
-    await page.waitForTimeout(300);
-  }
-  return false;
-}
-
-async function pressEnterAnyFrame(page, selector) {
-  try { await page.locator(selector).press('Enter'); } catch {}
-  for (const f of page.frames()) { try { await f.locator(selector).press('Enter'); } catch {} }
 }
 
 async function login(page) {
-  console.log('➡️ Abriendo /login');
-  await page.goto('https://biwenger.as.com/login', { waitUntil: 'networkidle' });
-  await snap(page, '01-login');
-  await acceptCookiesEverywhere(page);
+  // 0) Home
+  await page.goto('https://biwenger.as.com/', { waitUntil: 'networkidle' });
+  await snap(page, '01-home');
 
-  // 👇 NUEVO: si aterriza en registro, pulsar "Ya tengo cuenta"
-  const alreadySelectors = [
-    'text=Ya tengo cuenta',
-    'button:has-text("Ya tengo cuenta")',
-    'a:has-text("Ya tengo cuenta")'
-  ];
-  const switched = await clickMany(page, alreadySelectors, 4000);
-  if (switched) {
-    await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(800);
-  }
+  // 1) Cookies: botón "Aceptar" del modal
+  await clickIfVisible(page, 'button:has-text("Aceptar")', 2000);
 
-  const emailSel = 'input[type="email"], input[name="email"], input[id*="email" i], input[placeholder*="email" i], input[name="username"]';
-  const passSel  = 'input[type="password"], input[name="password"], input[id*="pass" i], input[placeholder*="contraseña" i]';
+  // 2) Botón grande rojo ¡COMIENZA A JUGAR!
+  await clickIfVisible(page, 'text=/¡?COMIENZA A JUGAR!?/i');
 
-  const emailOk = await waitFillAnyFrame(page, emailSel, BIWENGER_EMAIL);
-  const passOk  = await waitFillAnyFrame(page, passSel,  BIWENGER_PASSWORD);
-  if (!emailOk || !passOk) {
-    await snap(page, '02-no-form');
-    throw new Error('No se localiza el formulario de login (email/password) en página ni iframes');
-  }
+  // 3) Pantalla de registro -> link/botón "Ya tengo cuenta"
+  //   (según tu HTML: <a role="button">Ya tengo cuenta</a>)
+  await page.waitForLoadState('networkidle');
+  await clickIfVisible(page, 'a[role="button"]:has-text("Ya tengo cuenta")', 6000)
+    || await clickIfVisible(page, 'text=Ya tengo cuenta', 6000);
 
-  // Enviar
-  const submitSels = [
-    'button[type="submit"]','button:has-text("Entrar")','button:has-text("Iniciar sesión")','button:has-text("Acceder")','form button'
-  ];
-  let clicked = await clickMany(page, submitSels, 5000);
-  if (!clicked) for (const f of page.frames()) { clicked ||= await clickMany(f, submitSels, 2000); }
-  if (!clicked) await pressEnterAnyFrame(page, passSel);
+  // 4) Formulario de login: inputs por name exactos
+  const emailSel = 'input[name="email"]';
+  const passSel  = 'input[name="password"]';
+  await page.waitForSelector(emailSel, { timeout: 20000 });
+  await page.fill(emailSel, BIWENGER_EMAIL);
+  await page.waitForSelector(passSel, { timeout: 20000 });
+  await page.fill(passSel, BIWENGER_PASSWORD);
+
+  // Botón "INICIAR SESIÓN"
+  await clickIfVisible(page, 'button:has-text("INICIAR SESIÓN")', 8000)
+    || await page.locator(passSel).press('Enter');
 
   await page.waitForLoadState('networkidle');
-  await page.waitForTimeout(1200);
-  await snap(page, '03-post-login');
+  await snap(page, '02-post-login');
 
-  if ((await page.url()).includes('/login')) throw new Error('Login no completado (seguimos en /login)');
-  console.log('✅ Login OK');
+  // Si algo salió mal y seguimos en login, corta
+  const url = await page.url();
+  if (/\/login/i.test(url)) throw new Error('Login no completado (seguimos en /login)');
 }
 
 async function gotoLeague(page) {
-  console.log('➡️ Abriendo liga');
   await page.goto(`https://biwenger.as.com/app/#/league/${LIGA_ID}`, { waitUntil: 'networkidle' });
   await page.waitForTimeout(800);
-  await snap(page, '04-league');
+  await snap(page, '03-league');
 }
 
 async function openTab(page, text, hrefPart) {
-  const sels = [`a[href*="${hrefPart}"]`,`a:has-text("${text}")`,`button:has-text("${text}")`,`text=${text}`];
-  let ok = await clickMany(page, sels, 6000);
-  if (!ok) for (const f of page.frames()) { ok ||= await clickMany(f, sels, 2000); }
+  // Navega por enlace o por texto de pestaña
+  const tries = [
+    `a[href*="${hrefPart}"]`,
+    `a:has-text("${text}")`,
+    `button:has-text("${text}")`,
+    `text=${text}`
+  ];
+  for (const sel of tries) {
+    if (await clickIfVisible(page, sel, 5000)) break;
+  }
   await page.waitForLoadState('networkidle');
   await page.waitForTimeout(600);
 }
@@ -125,7 +84,9 @@ async function openTab(page, text, hrefPart) {
 async function waitAny(page, sels, ms = 15000) {
   const t0 = Date.now();
   while (Date.now() - t0 < ms) {
-    for (const s of sels) if (await page.locator(s).first().isVisible().catch(()=>false)) return true;
+    for (const s of sels) {
+      if (await page.locator(s).first().isVisible().catch(()=>false)) return true;
+    }
     await page.waitForTimeout(250);
   }
   return false;
@@ -135,11 +96,17 @@ async function scrapeList(page, candidates) {
   await waitAny(page, candidates, 15000);
   return page.evaluate((sels) => {
     let nodes = [];
-    for (const s of sels) { const n = Array.from(document.querySelectorAll(s)); if (n.length) { nodes = n; break; } }
-    const num = s => { const m = String(s||'').match(/(\d[\d\.]*)(?:\s?€| M| M€)?/i); return m ? Number(m[1].replace(/\./g,'')) : null; };
+    for (const s of sels) {
+      const list = Array.from(document.querySelectorAll(s));
+      if (list.length) { nodes = list; break; }
+    }
+    const num = (str) => {
+      const m = String(str||'').match(/(\d[\d\.]*)(?:\s?€| M| M€)?/i);
+      return m ? Number(m[1].replace(/\./g,'')) : null;
+    };
     const out = [];
-    for (const el of nodes) {
-      const t = (el.innerText||'').trim(); if (!t) continue;
+    for (const n of nodes) {
+      const t = (n.innerText||'').trim(); if (!t) continue;
       const name  = (t.match(/^[A-ZÁÉÍÓÚÑÜ][\wÁÉÍÓÚÑüÜ .'\-]{2,}/m)||[null])[0];
       const pos   = (t.match(/\b(POR|DEF|MED|DEL)\b/)||[null])[0];
       const team  = (t.match(/\(([A-Z]{2,3})\)/)||[null,null])[1];
@@ -155,32 +122,38 @@ async function scrapeList(page, candidates) {
 async function run() {
   const browser = await chromium.launch({
     headless: true,
-    args: ['--no-sandbox','--disable-dev-shm-usage','--disable-blink-features=AutomationControlled']
+    args: ['--no-sandbox','--disable-dev-shm-usage']
   });
   const context = await browser.newContext({
     viewport: { width: 1366, height: 850 },
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36'
   });
-  await context.addInitScript(() => Object.defineProperty(navigator, 'webdriver', { get: () => false }));
   const page = await context.newPage();
 
   try {
+    console.log('➡️ Login…');
     await login(page);
+
+    console.log('➡️ Liga…');
     await gotoLeague(page);
 
-    console.log('➡️ Equipo');
+    console.log('➡️ Equipo…');
     await openTab(page, 'Equipo', 'team');
     const team = await scrapeList(page, ['[class*="player"]','[class*="card"]','[class*="lineup"]']);
     console.log(`✅ Equipo: ${team.length}`);
 
-    console.log('➡️ Mercado');
+    console.log('➡️ Mercado…');
     await openTab(page, 'Mercado', 'market');
     const market = await scrapeList(page, ['table tr','[class*="market"] [class*="row"]','[class*="market"] [class*="item"]']);
     console.log(`✅ Mercado: ${market.length}`);
 
-    // Saldo best-effort
+    // Saldo (best-effort)
     let balance = null;
-    try { const txt = await page.locator('body').innerText(); const m = txt.match(/(?:Saldo|Presupuesto|€)\s*([\d\.]+)/i); balance = m ? Number(m[1].replace(/\./g,'')) : null; } catch {}
+    try {
+      const txt = await page.locator('body').innerText();
+      const m = txt.match(/(?:Saldo|Presupuesto|€)\s*([\d\.]+)/i);
+      balance = m ? Number(m[1].replace(/\./g,'')) : null;
+    } catch {}
 
     const payload = {
       scrapedAt: new Date().toISOString(),
