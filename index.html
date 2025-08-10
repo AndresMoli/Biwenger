@@ -1,0 +1,20 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Biwenger data</title>
+  </head>
+  <body>
+    <h1>Biwenger data.json</h1>
+    <pre id="out">Cargando...</pre>
+    <script>
+      fetch('data.json').then(r=>r.json()).then(j=>{
+        document.getElementById('out').textContent = JSON.stringify(j, null, 2);
+      }).catch(e=>{
+        document.getElementById('out').textContent = 'Aún no hay data.json. Ejecuta el workflow.';
+      });
+    </script>
+  </body>
+</html>
