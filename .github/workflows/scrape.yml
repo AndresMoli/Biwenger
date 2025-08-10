@@ -17,32 +17,39 @@ jobs:
         with:
           node-version: '20'
 
-      # ✅ Cache estable de node_modules + navegadores Playwright
-      - name: Cache Node modules and Playwright browsers
+      # Detectar si existe package-lock.json
+      - name: Check for lockfile
+        id: lock
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "has_lock=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_lock=false" >> $GITHUB_OUTPUT
+          fi
+
+      # Caché (funciona con o sin lock). Si no hay lock, usa package.json para la key.
+      - name: Cache Node modules and Playwright
         id: cache
         uses: actions/cache@v3
         with:
           path: |
             ~/.cache/ms-playwright
             node_modules
-          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-playwright-${{ steps.lock.outputs.has_lock == 'true' && hashFiles('package-lock.json') || hashFiles('package.json') }}
           restore-keys: |
             ${{ runner.os }}-playwright-
 
-      # 🛠️ Instalar SOLO si NO hay caché
-      - name: Install dependencies and Playwright (miss)
-        if: steps.cache.outputs.cache-hit != 'true'
+      # Instalar: ci si hay lock; si no, install normal
+      - name: Install dependencies and Playwright
         run: |
-          npm ci
+          if [ "${{ steps.lock.outputs.has_lock }}" = "true" ]; then
+            echo "Using npm ci"
+            npm ci
+          else
+            echo "Using npm install (no package-lock.json)"
+            npm install
+          fi
           npx playwright install --with-deps
-
-      # ⚡ Verificación rápida si SÍ hay caché (no reinstala nada)
-      - name: Verify cache (hit)
-        if: steps.cache.outputs.cache-hit == 'true'
-        run: |
-          echo "✅ Cache hit: usando node_modules y browsers de la caché"
-          node -v && npm -v
-          ls -la ~/.cache/ms-playwright || true
 
       - name: Run scraper
         env:
@@ -52,7 +59,6 @@ jobs:
           PUBLIC_OUT_PATH: ./public/data.json
         run: npm start
 
-      # 🔎 Subir capturas/outputs siempre para depurar
       - name: Upload public as artifact (debug)
         if: always()
         uses: actions/upload-artifact@v4
@@ -60,7 +66,6 @@ jobs:
           name: public-output
           path: public
 
-      # 🚀 Publicar solo si todo fue OK
       - name: Deploy to gh-pages
         if: success()
         uses: peaceiris/actions-gh-pages@v3
