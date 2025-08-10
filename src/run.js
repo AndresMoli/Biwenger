@@ -18,51 +18,46 @@ async function scrape() {
   const context = await browser.newContext();
   const page = await context.newPage();
 
-  // 1) Login
-  await page.goto('https://biwenger.as.com/');
-  // Botón de login (puede variar, probamos varias opciones)
-  const loginButtons = [
-    page.getByRole('button', { name: /iniciar sesión|entrar/i }),
-    page.locator('text=/Iniciar sesión|Entrar/i').first()
-  ];
-  for (const btn of loginButtons) {
-    try { await btn.click({ timeout: 4000 }); break; } catch {}
-  }
+  console.log("➡️ Abriendo Biwenger...");
+  await page.goto('https://biwenger.as.com/', { waitUntil: 'networkidle' });
 
-  // Campos
-  try { await page.getByPlaceholder(/email/i).fill(BIWENGER_EMAIL, { timeout: 5000 }); } catch {}
-  try { await page.getByPlaceholder(/contraseña|password/i).fill(BIWENGER_PASSWORD, { timeout: 5000 }); } catch {}
-
-  // Enviar
-  const submitButtons = [
-    page.getByRole('button', { name: /iniciar sesión|entrar/i }),
-    page.locator('button:has-text("Entrar")').first()
-  ];
-  for (const btn of submitButtons) {
-    try { await btn.click({ timeout: 4000 }); break; } catch {}
-  }
-
-  await page.waitForLoadState('networkidle', { timeout: 15000 });
-
-  // 2) Equipo
-  // Vamos a la liga y a la vista de equipo
+  console.log("➡️ Iniciando sesión...");
   try {
-    await page.goto(`https://biwenger.as.com/app/#/league/${LIGA_ID}/team`, { waitUntil: 'load' });
-  } catch {}
-  await page.waitForTimeout(1500);
+    await page.getByRole('button', { name: /iniciar sesión|entrar/i }).click({ timeout: 5000 });
+  } catch {
+    console.log("⚠️ Botón de login no encontrado, intentando localizador alternativo");
+    await page.locator('text=/Iniciar sesión|Entrar/i').first().click({ timeout: 5000 });
+  }
+
+  await page.getByPlaceholder(/email/i).fill(BIWENGER_EMAIL);
+  await page.getByPlaceholder(/contraseña|password/i).fill(BIWENGER_PASSWORD);
+
+  try {
+    await page.getByRole('button', { name: /iniciar sesión|entrar/i }).click();
+  } catch {
+    await page.locator('button:has-text("Entrar")').click();
+  }
+
+  await page.waitForLoadState('networkidle');
+
+  console.log("➡️ Abriendo liga...");
+  // Ir a la página principal de ligas
+  await page.goto(`https://biwenger.as.com/app/#/league/${LIGA_ID}`, { waitUntil: 'networkidle' });
+
+  console.log("➡️ Entrando en Equipo...");
+  await page.click('a[href*="team"], text=Equipo', { timeout: 10000 });
+  await page.waitForSelector('[class*="player"], [class*="card"], [class*="lineup"]', { timeout: 15000 });
 
   const equipo = await page.evaluate(() => {
     const out = [];
-    // Buscamos posibles contenedores de jugadores
-    const candidates = Array.from(document.querySelectorAll('[class*="player"], [class*="card"], [class*="lineup"], [class*="squad"]'));
-    candidates.forEach(c => {
-      const text = (c.innerText || '').trim();
-      if (!text) return;
-      const name = (text.match(/^[A-ZÁÉÍÓÚÑÜ][\wÁÉÍÓÚÑüÜ .'\-]{2,}/m) || [null])[0];
+    const cards = document.querySelectorAll('[class*="player"], [class*="card"], [class*="lineup"]');
+    cards.forEach(c => {
+      const text = c.innerText || '';
+      const name = (text.match(/^[A-ZÁÉÍÓÚÑÜ][\wÁÉÍÓÚÑüÜ .'-]{2,}/m) || [null])[0];
       const pos  = (text.match(/\b(POR|DEF|MED|DEL)\b/) || [null])[0];
-      const team = (text.match(/\(([A-Z]{2,3})\)/) || [null,null])[1];
-      const price = (text.match(/(\d[\d\.]*)(?:\s?€| M| M€)/i) || [null,null])[1];
-      const status = (text.match(/(lesión|lesionado|duda|sanción|baja|ok|titular|doubt)/i) || [null])[0];
+      const team = (text.match(/\b\([A-Z]{2,3}\)\b/) || [null])[0]?.replace(/[()]/g,'');
+      const price = (text.match(/(\d[\d\.]*)(?:[ ]?€| M| M€)/i) || [null])[1];
+      const status = (text.match(/(lesión|lesionado|duda|sanción|baja|ok|titular)/i) || [null])[0];
       if (name && pos) {
         out.push({
           name: name.trim(),
@@ -77,21 +72,20 @@ async function scrape() {
     return out;
   });
 
-  // 3) Mercado
-  try {
-    await page.goto(`https://biwenger.as.com/app/#/league/${LIGA_ID}/market`, { waitUntil: 'load' });
-  } catch {}
-  await page.waitForTimeout(1500);
+  console.log(`✅ Equipo extraído: ${equipo.length} jugadores`);
+
+  console.log("➡️ Entrando en Mercado...");
+  await page.click('a[href*="market"], text=Mercado', { timeout: 10000 });
+  await page.waitForSelector('table tr, [class*="market"] [class*="row"], [class*="market"] [class*="item"]', { timeout: 15000 });
 
   const mercado = await page.evaluate(() => {
     const out = [];
     const rows = document.querySelectorAll('table tr, [class*="market"] [class*="row"], [class*="market"] [class*="item"]');
     rows.forEach(r => {
-      const text = (r.innerText || '').trim();
-      if (!text) return;
-      const name = (text.match(/^[A-ZÁÉÍÓÚÑÜ][\wÁÉÍÓÚÑüÜ .'\-]{2,}/m) || [null])[0];
+      const text = r.innerText || '';
+      const name = (text.match(/^[A-ZÁÉÍÓÚÑÜ][\wÁÉÍÓÚÑüÜ .'-]{2,}/m) || [null])[0];
       const pos  = (text.match(/\b(POR|DEF|MED|DEL)\b/) || [null])[0];
-      const price = (text.match(/(\d[\d\.]*)(?:\s?€| M| M€)/i) || [null,null])[1];
+      const price = (text.match(/(\d[\d\.]*)(?:[ ]?€| M| M€)/i) || [null])[1];
       const trend = (text.match(/[\+\-]\d+%/) || [null])[0];
       if (name && pos) {
         out.push({
@@ -106,7 +100,9 @@ async function scrape() {
     return out;
   });
 
-  // 4) Saldo (best-effort)
+  console.log(`✅ Mercado extraído: ${mercado.length} jugadores`);
+
+  // Saldo
   let saldo = null;
   try {
     const allText = await page.locator('body').innerText();
@@ -114,6 +110,7 @@ async function scrape() {
     saldo = n ? Number(n.replace(/\./g,'')) : null;
   } catch {}
 
+  // Guardar JSON
   const payload = {
     scrapedAt: new Date().toISOString(),
     leagueId: LIGA_ID,
@@ -125,7 +122,12 @@ async function scrape() {
   const outPath = PUBLIC_OUT_PATH || './public/data.json';
   fs.mkdirSync(outPath.split('/').slice(0,-1).join('/'), { recursive: true });
   fs.writeFileSync(outPath, JSON.stringify(payload, null, 2));
+  console.log(`💾 Guardado en ${outPath}`);
+
   await browser.close();
 }
 
-scrape().catch(e => { console.error(e); process.exit(1); });
+scrape().catch(e => { 
+  console.error("❌ Error en scraping:", e);
+  process.exit(1); 
+});
