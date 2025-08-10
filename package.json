@@ -1,0 +1,11 @@
+{
+  "name": "biwenger-scraper",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node src/run.js"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.46.0"
+  }
+}
