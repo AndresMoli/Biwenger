@@ -18,7 +18,13 @@ const OUT_PATH = PUBLIC_OUT_PATH || './public/data.json';
 const OUT_DIR  = path.dirname(OUT_PATH);
 
 // ------------ Utilidades ------------
-async function ensureDir(p) { try { fs.mkdirSync(p, { recursive: true }); } catch {} }
+async function ensureDir(p) {
+  try {
+    if (!fs.existsSync(p)) {
+      fs.mkdirSync(p, { recursive: true });
+    }
+  } catch {}
+}
 async function snap(page, name) {
   await ensureDir(OUT_DIR);
   try { await page.screenshot({ path: path.join(OUT_DIR, `${name}.png`), fullPage: true }); } catch {}
@@ -331,12 +337,15 @@ async function run() {
     // data.json (último)
     await ensureDir(OUT_DIR);
     fs.writeFileSync(OUT_PATH, JSON.stringify(payload, null, 2));
-    // histórico
+    // histórico: añade sin reemplazar existentes
     const dataHistPath = path.join(histDir, `data_${tsFile}.json`);
-    fs.writeFileSync(dataHistPath, JSON.stringify(payload, null, 2));
+    const finalHistPath = fs.existsSync(dataHistPath)
+      ? path.join(histDir, `data_${tsFile}_${Date.now()}.json`)
+      : dataHistPath;
+    fs.writeFileSync(finalHistPath, JSON.stringify(payload, null, 2));
 
     await snap(page, '99-ok');
-    console.log('💾 Guardado en:', OUT_PATH, 'y', dataHistPath);
+    console.log('💾 Guardado en:', OUT_PATH, 'y', finalHistPath);
 
   } catch (e) {
     console.error('❌ Error:', e?.message || e);
