@@ -8,46 +8,16 @@
   <body>
     <script>
       const FILE_PATH = 'data.json';
-      const FILE_NAME = 'data.json';
-
-      // Detecta si la ruta termina en /download aunque esté en subcarpeta
-      const isDownload = window.location.pathname.replace(/\/+$/,'').endsWith('/download');
-
-      if (isDownload) {
-        document.body.innerHTML = `
-          <p>Descargando <strong>${FILE_NAME}</strong>...</p>
-          <p><a id="backupLink" href="${FILE_PATH}" download="${FILE_NAME}">Haz clic aquí si no se descarga automáticamente</a></p>
-        `;
-
-        fetch(FILE_PATH, { cache: 'no-store' })
-          .then(res => res.blob())
-          .then(blob => {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = FILE_NAME;
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            URL.revokeObjectURL(url);
-          })
-          .catch(() => {
-            // Si falla el fetch, el enlace de backup sigue funcionando
-            document.querySelector('#backupLink').textContent = 'Descargar manualmente';
-          });
-      } else {
-        // Mostrar contenido RAW en la pantalla principal
-        fetch(FILE_PATH, { cache: 'no-store' })
-          .then(res => res.text())
-          .then(text => {
-            document.body.style.margin = "0";
-            document.body.style.fontFamily = "monospace";
-            document.body.textContent = text;
-          })
-          .catch(() => {
-            document.body.textContent = 'Aún no hay data.json. Ejecuta el workflow.';
-          });
-      }
+      fetch(FILE_PATH, { cache: 'no-store' })
+        .then(res => res.text())
+        .then(text => {
+          document.body.style.margin = "0";
+          document.body.style.fontFamily = "monospace";
+          document.body.textContent = text;
+        })
+        .catch(() => {
+          document.body.textContent = 'Aún no hay data.json. Ejecuta el workflow.';
+        });
     </script>
   </body>
 </html>
