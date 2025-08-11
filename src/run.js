@@ -84,15 +84,21 @@ async function login(page) {
 
 async function openLeague(page) {
   await page.goto(`https://biwenger.as.com/league/${LIGA_ID}`, { waitUntil: 'networkidle' });
-  await killOverlays(page);
   await page.waitForTimeout(600);
+  await killOverlays(page);
   await snap(page,'03-league');
 }
-async function openTab(page, text, hrefPart) {
+/* async function openTab(page, text, hrefPart) {
   const tries = [`a[href*="${hrefPart}"]`,`a:has-text("${text}")`,`button:has-text("${text}")`,`text=${text}`];
   for (const sel of tries) { if (await clickIfVisible(page, sel, 5000)) break; }
   await page.waitForLoadState('networkidle');
   await page.waitForTimeout(400);
+} */
+async function openTab(page, hrefPart) {
+  const url = `https://biwenger.as.com/${hrefPart}`;
+  await page.goto(url, { waitUntil: 'networkidle' });
+  await page.waitForTimeout(500);
+  await killOverlays(page);
 }
 
 // ------------ Scrapers ------------
@@ -289,21 +295,18 @@ async function run() {
     await login(page);
     console.log('➡️ Liga…');
     await openLeague(page);
-    await killOverlays(page);
 
     // 2) Equipo
     console.log('➡️ Equipo…');
-    await openTab(page, 'Equipo', 'team');
+    await openTab(page, 'team');
     let team = await scrapeTeam(page);
-    await killOverlays(page);
     await snap(page, '04-equipo');  // imagen específica de tu plantilla
     team = await enrichFromProfile(context, team);  // ← SIEMPRE añade cláusula/propietario
     console.log(`✅ Equipo: ${team.length}`);
     
     // 3) Mercado
     console.log('➡️ Mercado…');
-    await openTab(page, 'Mercado', 'market');
-    await killOverlays(page);
+    await openTab(page, 'market');
     let { players: market, balance } = await scrapeMarket(page);
     market = await enrichFromProfile(context, market); // ← también para los del mercado
     console.log(`✅ Mercado: ${market.length} | Saldo: ${balance ?? 'n/d'}`);
