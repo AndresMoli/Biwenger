@@ -2,7 +2,13 @@ import { chromium } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
 
-const { BIWENGER_EMAIL, BIWENGER_PASSWORD, LIGA_ID, PUBLIC_OUT_PATH } = process.env;
+const {
+  BIWENGER_EMAIL,
+  BIWENGER_PASSWORD,
+  LIGA_ID,
+  PUBLIC_OUT_PATH,
+  FETCH_CLAUSE // "true" para rascar clausula en la ficha de cada jugador
+} = process.env;
 
 if (!BIWENGER_EMAIL || !BIWENGER_PASSWORD || !LIGA_ID) {
   console.error('Faltan BIWENGER_EMAIL, BIWENGER_PASSWORD o LIGA_ID');
@@ -12,84 +18,54 @@ if (!BIWENGER_EMAIL || !BIWENGER_PASSWORD || !LIGA_ID) {
 const OUT_PATH = PUBLIC_OUT_PATH || './public/data.json';
 const OUT_DIR  = path.dirname(OUT_PATH);
 
-// ------------ Utilidades generales ------------
+// ------------ Utilidades ------------
 async function ensureDir(p) { try { fs.mkdirSync(p, { recursive: true }); } catch {} }
 async function snap(page, name) {
   await ensureDir(OUT_DIR);
   try { await page.screenshot({ path: path.join(OUT_DIR, `${name}.png`), fullPage: true }); } catch {}
 }
-
-function cleanText(s) {
-  return String(s || '')
-    .replace(/\u00A0/g, ' ') // nbsp
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function parseMoney(s) {
-  // Acepta: "4.650.000 €", "9.300.000 €", "≈ 3.650.000", "30.000 €"
-  if (!s) return null;
-  const txt = cleanText(s);
-  const m = txt.match(/(\d[\d\.]*)/);
-  return m ? Number(m[1].replace(/\./g, '')) : null;
-}
-
-function normalizePos(pos) {
-  if (!pos) return null;
-  const p = pos.toUpperCase().trim();
-  // Posiciones posibles observadas: DL, DF; Biwenger: POR/DEF/MED/DEL
-  if (p === 'DL' || p === 'DEL') return 'DEL';
-  if (p === 'DF' || p === 'DEF') return 'DEF';
-  if (p === 'MC' || p === 'MED' || p === 'MI' || p === 'MD') return 'MED';
-  if (p === 'POR' || p === 'GK' || p === 'GKP') return 'POR';
-  return p; // deja tal cual si ya es estándar
-}
-
-// ------------ Login y navegación ------------
+const clean = (s)=> String(s||'').replace(/\u00A0/g,' ').replace(/\s+/g,' ').trim();
+const money = (s)=>{ const m = clean(s).match(/(\d[\d\.]*)/); return m ? Number(m[1].replace(/\./g,'')) : null; };
+const normPos = (p)=>{
+  if (!p) return null; p = p.toUpperCase().trim();
+  if (p==='DL'||p==='DEL') return 'DEL';
+  if (p==='DF'||p==='DEF') return 'DEF';
+  if (p==='MC'||p==='MED'||p==='MI'||p==='MD') return 'MED';
+  if (p==='POR'||p==='GK'||p==='GKP') return 'POR';
+  return p;
+};
 async function clickIfVisible(page, selector, timeout = 6000) {
   const el = page.locator(selector).first();
-  if (await el.isVisible().catch(() => false)) { await el.click({ timeout }); return true; }
+  if (await el.isVisible().catch(()=>false)) { await el.click({ timeout }); return true; }
   return false;
 }
 
+// ------------ Login / Navegación ------------
 async function acceptCookies(page) {
-  // En castellano por defecto, pero por si acaso, contempla inglés
   const sels = [
-    'button:has-text("Aceptar")',
-    'button:has-text("Acepto")',
-    'button:has-text("Aceptar y cerrar")',
-    'button:has-text("Accept")',
-    '[aria-label*="acept" i]',
-    '[id*="didomi"][id*="accept" i]'
+    'button:has-text("Aceptar")','button:has-text("Acepto")','button:has-text("Aceptar y cerrar")',
+    'button:has-text("Accept")','[aria-label*="acept" i]','[id*="didomi"][id*="accept" i]'
   ];
   for (const s of sels) { if (await clickIfVisible(page, s, 1500)) break; }
 }
 
 async function login(page) {
   await page.goto('https://biwenger.as.com/', { waitUntil: 'networkidle' });
-  await snap(page, '01-home');
+  await snap(page,'01-home');
   await acceptCookies(page);
-
-  // ¡COMIENZA A JUGAR!
   await clickIfVisible(page, 'text=/¡?COMIENZA A JUGAR!?/i');
-
-  // "Ya tengo cuenta"
   await page.waitForLoadState('networkidle');
   await clickIfVisible(page, 'a[role="button"]:has-text("Ya tengo cuenta")', 6000)
     || await clickIfVisible(page, 'text=Ya tengo cuenta', 6000);
 
-  // Formulario
   const emailSel = 'input[name="email"]';
   const passSel  = 'input[name="password"]';
   await page.waitForSelector(emailSel, { timeout: 20000 });
   await page.fill(emailSel, BIWENGER_EMAIL);
   await page.waitForSelector(passSel, { timeout: 20000 });
   await page.fill(passSel, BIWENGER_PASSWORD);
-
-  // INICIAR SESIÓN
   await clickIfVisible(page, 'button:has-text("INICIAR SESIÓN")', 8000)
     || await page.locator(passSel).press('Enter');
-
   await page.waitForLoadState('networkidle');
   await snap(page, '02-post-login');
   if ((await page.url()).includes('/login')) throw new Error('Login no completado (seguimos en /login)');
@@ -98,85 +74,64 @@ async function login(page) {
 async function openLeague(page) {
   await page.goto(`https://biwenger.as.com/league/${LIGA_ID}`, { waitUntil: 'networkidle' });
   await page.waitForTimeout(600);
-  await snap(page, '03-league');
+  await snap(page,'03-league');
 }
-
 async function openTab(page, text, hrefPart) {
-  const tries = [
-    `a[href*="${hrefPart}"]`,
-    `a:has-text("${text}")`,
-    `button:has-text("${text}")`,
-    `text=${text}`
-  ];
+  const tries = [`a[href*="${hrefPart}"]`,`a:has-text("${text}")`,`button:has-text("${text}")`,`text=${text}`];
   for (const sel of tries) { if (await clickIfVisible(page, sel, 5000)) break; }
   await page.waitForLoadState('networkidle');
   await page.waitForTimeout(400);
 }
 
-// ------------ Scrapers específicos con tu HTML real ------------
-// MARKET: <player-card> con:
-//  - Nombre: h3 a
-//  - Posición: <player-position> (texto "DL"/"DF"...), title/aria-label tiene "Delantero"/"Defensa"
-//  - Equipo: <a.team> con aria-label/title del equipo
-//  - Precio real: botón con aria-label "Precio de venta: 9.300.000 €" (lo pedías como precio real)
-//  - Precio listado (h4) dentro de .price (lo guardamos como listedPrice)
-//  - Increment si aparece en <increment>
+// ------------ Scrapers ------------
 async function scrapeMarket(page) {
-  // Espera a que haya player-card en el market
-  await page.waitForSelector('player-card', { timeout: 15000 }).catch(() => {});
+  await page.waitForSelector('player-card', { timeout: 15000 }).catch(()=>{});
   const players = await page.evaluate(() => {
-    function clean(s){ return String(s||'').replace(/\u00A0/g,' ').replace(/\s+/g,' ').trim(); }
-    function money(s){ if(!s) return null; const m = clean(s).match(/(\d[\d\.]*)/); return m ? Number(m[1].replace(/\./g,'')) : null; }
-    function normPos(p){
-      if(!p) return null; p = p.toUpperCase().trim();
-      if (p==='DL'||p==='DEL') return 'DEL';
-      if (p==='DF'||p==='DEF') return 'DEF';
-      if (p==='MC'||p==='MED'||p==='MI'||p==='MD') return 'MED';
-      if (p==='POR'||p==='GK'||p==='GKP') return 'POR';
-      return p;
-    }
+    function C(s){return String(s||'').replace(/\u00A0/g,' ').replace(/\s+/g,' ').trim();}
+    function M(s){const m=C(s).match(/(\d[\d\.]*)/);return m?Number(m[1].replace(/\./g,'')):null;}
+    function P(p){if(!p)return null;p=p.toUpperCase().trim();
+      if(p==='DL'||p==='DEL')return'DEL';
+      if(p==='DF'||p==='DEF')return'DEF';
+      if(p==='MC'||p==='MED'||p==='MI'||p==='MD')return'MED';
+      if(p==='POR'||p==='GK'||p==='GKP')return'POR';
+      return p;}
 
     const cards = Array.from(document.querySelectorAll('player-card'));
     const out = [];
-
     for (const card of cards) {
-      // Nombre
-      let name = card.querySelector('h3 a')?.textContent;
-      if (!name) name = card.querySelector('.sr-only')?.textContent;
-      name = clean(name);
+      let name = card.querySelector('h3 a')?.textContent || card.querySelector('.sr-only')?.textContent || '';
+      name = C(name);
 
-      // Posición
       const posEl = card.querySelector('player-position');
-      const posTxt = clean(posEl?.textContent || '');
-      const position = normPos(posTxt || posEl?.getAttribute('title') || posEl?.getAttribute('aria-label'));
-
-      // Equipo (aria-label/title en <a.team>)
+      const posTxt = C(posEl?.textContent || '');
+      const position = P(posTxt || posEl?.getAttribute('title') || posEl?.getAttribute('aria-label'));
       const teamA = card.querySelector('.team-pos a.team');
-      const team = clean(teamA?.getAttribute('aria-label') || teamA?.getAttribute('title') || '');
+      const team = C(teamA?.getAttribute('aria-label') || teamA?.getAttribute('title') || '');
 
-      // Precio "listado" (h4 dentro de .price)
-      const listedPrice = money(card.querySelector('.price h4')?.textContent);
-
-      // Precio REAL de venta del mercado: botón con aria-label "Precio de venta: 9.300.000 €"
-      // Si hay varios, nos quedamos con el que ponga "Precio de venta"
+      const listedPrice = M(card.querySelector('.price h4')?.textContent);
       let marketPrice = null;
       const sellBtn = card.querySelector('button[aria-label*="Precio de venta"]');
-      if (sellBtn) marketPrice = money(sellBtn.getAttribute('aria-label'));
+      if (sellBtn) marketPrice = M(sellBtn.getAttribute('aria-label'));
 
-      // Incremento si aparece
-      const increment = money(card.querySelector('increment')?.textContent);
+      // ⏳ plazo: <time-relative title="Su venta finaliza 13/8/25, 10:22.">en 2 días</time-relative>
+      const timeRel = card.querySelector('time-relative');
+      const timeRemaining = C(timeRel?.textContent || '') || null;
+      const deadlineRaw = C(timeRel?.getAttribute('title') || '');
+      // extrae la fecha del title si existe
+      let deadline = null;
+      const m = deadlineRaw.match(/finaliza\s+(.+?)\.*$/i);
+      if (m && m[1]) deadline = m[1];
 
-      // URL jugador (por si quieres trazar)
       const url = card.querySelector('.photo a, h3 a')?.getAttribute('href') || null;
-
       if (name) {
         out.push({
           name,
           position: position || null,
           team: team || null,
-          price: marketPrice != null ? marketPrice : listedPrice, // 👈 prioriza precio real
+          price: (marketPrice != null ? marketPrice : listedPrice) ?? null,
           listedPrice: listedPrice ?? null,
-          increment: increment ?? null,
+          timeRemaining,
+          deadline,
           url
         });
       }
@@ -184,61 +139,44 @@ async function scrapeMarket(page) {
     return out;
   });
 
-  // Saldo disponible en Market (sticky-status → transfer-market-user-status → primer <balance>)
+  // Saldo (primer <balance> de la barra de estado)
   const balance = await page.evaluate(() => {
-    function clean(s){ return String(s||'').replace(/\u00A0/g,' ').replace(/\s+/g,' ').trim(); }
-    function money(s){ if(!s) return null; const m = clean(s).match(/(\d[\d\.]*)/); return m ? Number(m[1].replace(/\./g,'')) : null; }
+    function C(s){return String(s||'').replace(/\u00A0/g,' ').replace(/\s+/g,' ').trim();}
+    function M(s){const m=C(s).match(/(\d[\d\.]*)/);return m?Number(m[1].replace(/\./g,'')):null;}
     const cont = document.querySelector('.sticky-status transfer-market-user-status');
     if (!cont) return null;
     const bal = cont.querySelector('balance');
-    return money(bal?.textContent || '');
+    return M(bal?.textContent || '');
   });
 
   return { players, balance };
 }
 
-// TEAM: estructura similar de <player-card>, sin botón de "Precio de venta". Precio en .price h4.
 async function scrapeTeam(page) {
-  await page.waitForSelector('player-card', { timeout: 15000 }).catch(() => {});
+  await page.waitForSelector('player-card', { timeout: 15000 }).catch(()=>{});
   const players = await page.evaluate(() => {
-    function clean(s){ return String(s||'').replace(/\u00A0/g,' ').replace(/\s+/g,' ').trim(); }
-    function money(s){ if(!s) return null; const m = clean(s).match(/(\d[\d\.]*)/); return m ? Number(m[1].replace(/\./g,'')) : null; }
-    function normPos(p){
-      if(!p) return null; p = p.toUpperCase().trim();
-      if (p==='DL'||p==='DEL') return 'DEL';
-      if (p==='DF'||p==='DEF') return 'DEF';
-      if (p==='MC'||p==='MED'||p==='MI'||p==='MD') return 'MED';
-      if (p==='POR'||p==='GK'||p==='GKP') return 'POR';
-      return p;
-    }
+    function C(s){return String(s||'').replace(/\u00A0/g,' ').replace(/\s+/g,' ').trim();}
+    function M(s){const m=C(s).match(/(\d[\d\.]*)/);return m?Number(m[1].replace(/\./g,'')):null;}
+    function P(p){if(!p)return null;p=p.toUpperCase().trim();
+      if(p==='DL'||p==='DEL')return'DEL';
+      if(p==='DF'||p==='DEF')return'DEF';
+      if(p==='MC'||p==='MED'||p==='MI'||p==='MD')return'MED';
+      if(p==='POR'||p==='GK'||p==='GKP')return'POR';
+      return p;}
 
-    const cards = Array.from(document.querySelectorAll('player-card'));
     const out = [];
-
+    const cards = Array.from(document.querySelectorAll('player-card'));
     for (const card of cards) {
-      let name = card.querySelector('h3 a')?.textContent;
-      if (!name) name = card.querySelector('.sr-only')?.textContent;
-      name = clean(name);
-
+      let name = card.querySelector('h3 a')?.textContent || card.querySelector('.sr-only')?.textContent || '';
+      name = C(name);
       const posEl = card.querySelector('player-position');
-      const posTxt = clean(posEl?.textContent || '');
-      const position = normPos(posTxt || posEl?.getAttribute('title') || posEl?.getAttribute('aria-label'));
-
+      const posTxt = C(posEl?.textContent || '');
+      const position = P(posTxt || posEl?.getAttribute('title') || posEl?.getAttribute('aria-label'));
       const teamA = card.querySelector('.team-pos a.team');
-      const team = clean(teamA?.getAttribute('aria-label') || teamA?.getAttribute('title') || '');
-
-      const price = money(card.querySelector('.price h4')?.textContent);
+      const team = C(teamA?.getAttribute('aria-label') || teamA?.getAttribute('title') || '');
+      const price = M(card.querySelector('.price h4')?.textContent);
       const url = card.querySelector('.photo a, h3 a')?.getAttribute('href') || null;
-
-      if (name) {
-        out.push({
-          name,
-          position: position || null,
-          team: team || null,
-          price: price ?? null,
-          url
-        });
-      }
+      if (name) out.push({ name, position: position||null, team: team||null, price: price??null, url });
     }
     return out;
   });
@@ -246,7 +184,27 @@ async function scrapeTeam(page) {
   return players;
 }
 
-// ------------ Runner principal ------------
+// (Opcional) Clausula entrando en la ficha del jugador
+async function enrichClause(context, players) {
+  if (!players?.length) return players;
+  const page = await context.newPage();
+  for (let i = 0; i < players.length; i++) {
+    const p = players[i];
+    if (!p.url) continue;
+    try {
+      const full = p.url.startsWith('http') ? p.url : `https://biwenger.as.com${p.url}`;
+      await page.goto(full, { waitUntil: 'networkidle' });
+      // Busca "Cláusula de X €"
+      const txt = await page.locator('body').innerText();
+      const m = txt.match(/Cláusula(?: de)?\s+([\d\.]+)\s*€/i);
+      if (m && m[1]) players[i].clause = Number(m[1].replace(/\./g,''));
+    } catch {}
+  }
+  await page.close();
+  return players;
+}
+
+// ------------ Run ------------
 async function run() {
   const browser = await chromium.launch({
     headless: true,
@@ -261,42 +219,46 @@ async function run() {
   const page = await context.newPage();
 
   try {
-    // 1) Login y liga
-    console.log('➡️ Login…');
+    // Login + liga
     await login(page);
-
-    console.log('➡️ Liga…');
     await openLeague(page);
 
-    // 2) Equipo
-    console.log('➡️ Equipo…');
+    // Equipo
     await openTab(page, 'Equipo', 'team');
-    const team = await scrapeTeam(page);
-    // 📸 Captura específica del equipo
-    await snap(page, '04-equipo');
-    console.log(`✅ Equipo: ${team.length}`);
+    let team = await scrapeTeam(page);
+    await snap(page, '04-equipo'); // imagen específica de tu plantilla
 
-    
+    if (String(FETCH_CLAUSE).toLowerCase() === 'true') {
+      team = await enrichClause(context, team);
+    }
 
-    // 3) Mercado
-    console.log('➡️ Mercado…');
+    // Mercado
     await openTab(page, 'Mercado', 'market');
     const { players: market, balance } = await scrapeMarket(page);
-    console.log(`✅ Mercado: ${market.length} | Saldo: ${balance ?? 'n/d'}`);
 
-    // 4) Guardar JSON
+    // Guardado principal + histórico con timestamp
+    const now = new Date();
+    const tsFile = now.toISOString().replace(/[-:]/g,'').slice(0,15).replace('T','_'); // AAAAMMDD_HHMMSS aprox
+    const histDir = path.join(OUT_DIR, 'historicos');
+    await ensureDir(histDir);
+
     const payload = {
-      scrapedAt: new Date().toISOString(),
+      scrapedAt: now.toISOString(),
       leagueId: LIGA_ID,
       balance: balance ?? null,
       team: team.map(p => ({ ...p, source: 'equipo' })),
       market: market.map(p => ({ ...p, source: 'mercado' }))
     };
 
+    // data.json (último)
     await ensureDir(OUT_DIR);
     fs.writeFileSync(OUT_PATH, JSON.stringify(payload, null, 2));
-    console.log('💾 Guardado en', OUT_PATH);
+    // histórico
+    const histPath = path.join(histDir, `${tsFile}.json`);
+    fs.writeFileSync(histPath, JSON.stringify(payload, null, 2));
+
     await snap(page, '99-ok');
+    console.log('💾 Guardado en:', OUT_PATH, 'y', histPath);
 
   } catch (e) {
     console.error('❌ Error:', e?.message || e);
@@ -307,4 +269,4 @@ async function run() {
   }
 }
 
-run().catch(() => process.exit(1));
+run().catch(()=>process.exit(1));
