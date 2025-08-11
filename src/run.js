@@ -313,7 +313,10 @@ async function run() {
 
     // Guardado principal + histórico con timestamp
     const now = new Date();
-    const tsFile = now.toISOString().replace(/[-:]/g,'').slice(0,15).replace('T','_'); // AAAAMMDD_HHMMSS aprox
+    const tsFile = now.toISOString()
+      .replace(/[-:]/g,'')
+      .slice(0,13)        // YYYYMMDDTHHMM
+      .replace('T','_');
     const histDir = path.join(OUT_DIR, 'historicos');
     await ensureDir(histDir);
 
@@ -329,11 +332,11 @@ async function run() {
     await ensureDir(OUT_DIR);
     fs.writeFileSync(OUT_PATH, JSON.stringify(payload, null, 2));
     // histórico
-    const histPath = path.join(histDir, `${tsFile}.json`);
-    fs.writeFileSync(histPath, JSON.stringify(payload, null, 2));
+    const dataHistPath = path.join(histDir, `data_${tsFile}.json`);
+    fs.writeFileSync(dataHistPath, JSON.stringify(payload, null, 2));
 
     await snap(page, '99-ok');
-    console.log('💾 Guardado en:', OUT_PATH, 'y', histPath);
+    console.log('💾 Guardado en:', OUT_PATH, 'y', dataHistPath);
 
   } catch (e) {
     console.error('❌ Error:', e?.message || e);
