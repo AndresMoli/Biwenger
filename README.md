@@ -54,6 +54,8 @@ Configura en **Settings → Secrets and variables → Actions**:
 | `BIWENGER_EMAIL`     | Email de tu cuenta Biwenger        |
 | `BIWENGER_PASSWORD`  | Contraseña de tu cuenta            |
 | `LIGA_ID`            | ID de tu liga (en la URL de la liga) |
+| `GIST_ID`            | ID del gist donde se subirá `data.json` |
+| `GIST_TOKEN`         | Token de GitHub con permiso `gist` |
 
 ---
 
