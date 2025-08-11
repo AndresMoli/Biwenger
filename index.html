@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
   <head>
@@ -7,14 +6,40 @@
     <title>Biwenger data</title>
   </head>
   <body>
-    <h1>Biwenger data.json</h1>
-    <pre id="out">Cargando...</pre>
     <script>
-      fetch('data.json').then(r=>r.json()).then(j=>{
-        document.getElementById('out').textContent = JSON.stringify(j, null, 2);
-      }).catch(e=>{
-        document.getElementById('out').textContent = 'Aún no hay data.json. Ejecuta el workflow.';
-      });
+      const FILE_PATH = 'data.json';
+      const FILE_NAME = 'data.json';
+
+      if (window.location.pathname === '/download') {
+        // Descargar automáticamente
+        fetch(FILE_PATH, { cache: 'no-store' })
+          .then(res => res.blob())
+          .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = FILE_NAME;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+          })
+          .catch(() => {
+            window.location.href = FILE_PATH;
+          });
+      } else {
+        // Mostrar contenido raw
+        fetch(FILE_PATH, { cache: 'no-store' })
+          .then(res => res.text())
+          .then(text => {
+            document.body.style.margin = "0";
+            document.body.style.fontFamily = "monospace";
+            document.body.textContent = text;
+          })
+          .catch(() => {
+            document.body.textContent = 'Aún no hay data.json. Ejecuta el workflow.';
+          });
+      }
     </script>
   </body>
 </html>
