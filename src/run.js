@@ -6,8 +6,7 @@ const {
   BIWENGER_EMAIL,
   BIWENGER_PASSWORD,
   LIGA_ID,
-  PUBLIC_OUT_PATH,
-  FETCH_CLAUSE // "true" para rascar clausula en la ficha de cada jugador
+  PUBLIC_OUT_PATH
 } = process.env;
 
 if (!BIWENGER_EMAIL || !BIWENGER_PASSWORD || !LIGA_ID) {
