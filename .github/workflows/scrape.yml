@@ -40,6 +40,8 @@ jobs:
           BIWENGER_PASSWORD: ${{ secrets.BIWENGER_PASSWORD }}
           LIGA_ID: ${{ secrets.LIGA_ID }}
           PUBLIC_OUT_PATH: ./public/data.json
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
         run: npm start
 
       - name: Upload public as artifact (debug)
