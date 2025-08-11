@@ -6,7 +6,10 @@ const {
   BIWENGER_EMAIL,
   BIWENGER_PASSWORD,
   LIGA_ID,
-  PUBLIC_OUT_PATH
+  PUBLIC_OUT_PATH,
+  GIST_TOKEN,
+  GIST_ID,
+  GIST_FILENAME
 } = process.env;
 
 if (!BIWENGER_EMAIL || !BIWENGER_PASSWORD || !LIGA_ID) {
@@ -16,6 +19,7 @@ if (!BIWENGER_EMAIL || !BIWENGER_PASSWORD || !LIGA_ID) {
 
 const OUT_PATH = PUBLIC_OUT_PATH || './public/data.json';
 const OUT_DIR  = path.dirname(OUT_PATH);
+const GIST_FILE = GIST_FILENAME || 'data.json';
 
 // ------------ Utilidades ------------
 async function ensureDir(p) {
@@ -53,6 +57,31 @@ async function killOverlays(page) {
       try { n.remove(); } catch {}
     });
   });
+}
+
+// Actualiza un gist con el contenido de data.json
+async function saveToGist(content) {
+  if (!GIST_ID || !GIST_TOKEN) return;
+  try {
+    const res = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `token ${GIST_TOKEN}`,
+        'User-Agent': 'biwenger-scraper'
+      },
+      body: JSON.stringify({
+        files: { [GIST_FILE]: { content } }
+      })
+    });
+    if (!res.ok) {
+      console.error('No se pudo actualizar el gist:', await res.text());
+    } else {
+      console.log('✏️ Gist actualizado:', GIST_ID);
+    }
+  } catch (e) {
+    console.error('Error al actualizar gist:', e?.message || e);
+  }
 }
 
 
@@ -336,13 +365,15 @@ async function run() {
 
     // data.json (último)
     await ensureDir(OUT_DIR);
-    fs.writeFileSync(OUT_PATH, JSON.stringify(payload, null, 2));
+    const jsonStr = JSON.stringify(payload, null, 2);
+    fs.writeFileSync(OUT_PATH, jsonStr);
+    await saveToGist(jsonStr);
     // histórico: añade sin reemplazar existentes
     const dataHistPath = path.join(histDir, `data_${tsFile}.json`);
     const finalHistPath = fs.existsSync(dataHistPath)
       ? path.join(histDir, `data_${tsFile}_${Date.now()}.json`)
       : dataHistPath;
-    fs.writeFileSync(finalHistPath, JSON.stringify(payload, null, 2));
+    fs.writeFileSync(finalHistPath, jsonStr);
 
     await snap(page, '99-ok');
     console.log('💾 Guardado en:', OUT_PATH, 'y', finalHistPath);
