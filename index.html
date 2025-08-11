@@ -10,8 +10,13 @@
       const FILE_PATH = 'data.json';
       const FILE_NAME = 'data.json';
 
-      if (window.location.pathname === '/download') {
-        // Descargar automáticamente
+      // Soporta /download y /cualquier-carpeta/download (ej. /Biwenger/download)
+      const isDownload = window.location.pathname.replace(/\/+$/,'').endsWith('/download');
+
+      if (isDownload) {
+        // Pequeño aviso visual opcional
+        document.body.textContent = 'Descargando...';
+
         fetch(FILE_PATH, { cache: 'no-store' })
           .then(res => res.blob())
           .then(blob => {
@@ -25,10 +30,11 @@
             URL.revokeObjectURL(url);
           })
           .catch(() => {
+            // Fallback: abrir el archivo si no se pudo forzar la descarga
             window.location.href = FILE_PATH;
           });
       } else {
-        // Mostrar contenido raw
+        // Mostrar RAW en la pantalla principal
         fetch(FILE_PATH, { cache: 'no-store' })
           .then(res => res.text())
           .then(text => {
