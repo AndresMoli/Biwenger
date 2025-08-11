@@ -124,7 +124,7 @@ async function scrapeMarket(page) {
       const posTxt = C(posEl?.textContent || '');
       const position = P(posTxt || posEl?.getAttribute('title') || posEl?.getAttribute('aria-label'));
       const teamA = card.querySelector('.team-pos a.team');
-      const team = C(teamA?.getAttribute('aria-label') || teamA?.getAttribute('title') || '');
+      const team = C(teamA?.getAttribute('aria-label') || teamA?.getAttribute('title') || teamA?.textContent || '');
 
       const listedPrice = M(card.querySelector('.price h4')?.textContent);
       let marketPrice = null;
@@ -191,7 +191,7 @@ async function scrapeTeam(page) {
       const posTxt = C(posEl?.textContent || '');
       const position = P(posTxt || posEl?.getAttribute('title') || posEl?.getAttribute('aria-label'));
       const teamA = card.querySelector('.team-pos a.team');
-      const team = C(teamA?.getAttribute('aria-label') || teamA?.getAttribute('title') || '');
+      const team = C(teamA?.getAttribute('aria-label') || teamA?.getAttribute('title') || teamA?.textContent || '');
       const price = M(card.querySelector('.price h4')?.textContent);
       const url = card.querySelector('.photo a, h3 a')?.getAttribute('href') || null;
       if (name) out.push({ name, position: position||null, team: team||null, price: price??null, url });
