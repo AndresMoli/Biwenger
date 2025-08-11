@@ -27,7 +27,7 @@ Este proyecto automatiza la extracción de datos de **Biwenger** (tu equipo y el
 - **[gh-pages](https://github.com/andresmoli/Biwenger/tree/gh-pages)** → Resultados publicados.
   - [`data.json`](https://raw.githubusercontent.com/andresmoli/Biwenger/gh-pages/data.json) → Datos estructurados (equipo + mercado + saldo).
   - [`99-ok.png`](https://andresmoli.github.io/Biwenger/99-ok.png) → Captura final de la ejecución.
-  - [`equipo.png`](https://andresmoli.github.io/Biwenger/equipo.png) → Imagen completa de tu plantilla.
+  - [`04-equipo.png`](https://andresmoli.github.io/Biwenger/04-equipo.png) → Imagen completa de tu plantilla.
 
 ---
 
@@ -41,7 +41,7 @@ Este proyecto automatiza la extracción de datos de **Biwenger** (tu equipo y el
 
 - **Capturas:**  
   - [99-ok.png](https://andresmoli.github.io/Biwenger/99-ok.png)  
-  - [equipo.png](https://andresmoli.github.io/Biwenger/equipo.png)
+  - [04-equipo.png](https://andresmoli.github.io/Biwenger/04-equipo.png)
 
 ---
 
@@ -59,7 +59,7 @@ Configura en **Settings → Secrets and variables → Actions**:
 
 ## 📸 Ejemplo de salida
 
-![Equipo](https://andresmoli.github.io/Biwenger/equipo.png)
+![Equipo](https://andresmoli.github.io/Biwenger/04-equipo.png)
 
 ---
 
