@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
   <head>
@@ -6,18 +7,14 @@
     <title>Biwenger data</title>
   </head>
   <body>
+    <h1>Biwenger data.json</h1>
+    <pre id="out">Cargando...</pre>
     <script>
-      const FILE_PATH = 'data.json';
-      fetch(FILE_PATH, { cache: 'no-store' })
-        .then(res => res.text())
-        .then(text => {
-          document.body.style.margin = "0";
-          document.body.style.fontFamily = "monospace";
-          document.body.textContent = text;
-        })
-        .catch(() => {
-          document.body.textContent = 'Aún no hay data.json. Ejecuta el workflow.';
-        });
+      fetch('data.json').then(r=>r.json()).then(j=>{
+        document.getElementById('out').textContent = JSON.stringify(j, null, 2);
+      }).catch(e=>{
+        document.getElementById('out').textContent = 'Aún no hay data.json. Ejecuta el workflow.';
+      });
     </script>
   </body>
 </html>
