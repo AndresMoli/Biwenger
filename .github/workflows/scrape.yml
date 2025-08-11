@@ -12,44 +12,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
-      # Detectar si existe package-lock.json
-      - name: Check for lockfile
-        id: lock
-        run: |
-          if [ -f package-lock.json ]; then
-            echo "has_lock=true" >> $GITHUB_OUTPUT
-          else
-            echo "has_lock=false" >> $GITHUB_OUTPUT
-          fi
-
-      # Caché (funciona con o sin lock). Si no hay lock, usa package.json para la key.
-      - name: Cache Node modules and Playwright
-        id: cache
+      - name: Cache Playwright
         uses: actions/cache@v3
         with:
-          path: |
-            ~/.cache/ms-playwright
-            node_modules
-          key: ${{ runner.os }}-playwright-${{ steps.lock.outputs.has_lock == 'true' && hashFiles('package-lock.json') || hashFiles('package.json') }}
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-playwright-
 
-      # Instalar: ci si hay lock; si no, install normal
-      - name: Install dependencies and Playwright
-        run: |
-          if [ "${{ steps.lock.outputs.has_lock }}" = "true" ]; then
-            echo "Using npm ci"
-            npm ci
-          else
-            echo "Using npm install (no package-lock.json)"
-            npm install
-          fi
-          npx playwright install --with-deps
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit --no-fund
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
 
       - name: Run scraper
         env:
