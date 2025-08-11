@@ -1,7 +1,1017 @@
 {
-  "scrapedAt": "2025-08-11T05:25:24.063Z",
+  "scrapedAt": "2025-08-11T10:16:59.353Z",
   "leagueId": "drbLSZtcWd7r",
-  "balance": 10000,
-  "team": [],
-  "market": []
+  "balance": 4480000,
+  "team": [
+    {
+      "name": "Remiro",
+      "position": "PT",
+      "team": "Real Sociedad",
+      "price": 4970000,
+      "url": "/la-liga/players/alex-remiro",
+      "source": "equipo"
+    },
+    {
+      "name": "Le Normand",
+      "position": "DEF",
+      "team": "Atlético",
+      "price": 4290000,
+      "url": "/la-liga/players/le-normand",
+      "source": "equipo"
+    },
+    {
+      "name": "Giménez",
+      "position": "DEF",
+      "team": "Atlético",
+      "price": 1080000,
+      "url": "/la-liga/players/jose-gimenez",
+      "source": "equipo"
+    },
+    {
+      "name": "Ricardo Rodríguez",
+      "position": "DEF",
+      "team": "Betis",
+      "price": 200000,
+      "url": "/la-liga/players/r-rodriguez",
+      "source": "equipo"
+    },
+    {
+      "name": "Francés",
+      "position": "DEF",
+      "team": "Girona",
+      "price": 160000,
+      "url": "/la-liga/players/frances",
+      "source": "equipo"
+    },
+    {
+      "name": "Valverde",
+      "position": "MED",
+      "team": "Real Madrid",
+      "price": 15130000,
+      "url": "/la-liga/players/fede-valverde",
+      "source": "equipo"
+    },
+    {
+      "name": "Óscar Valentín",
+      "position": "MED",
+      "team": "Rayo Vallecano",
+      "price": 1120000,
+      "url": "/la-liga/players/o-valentin",
+      "source": "equipo"
+    },
+    {
+      "name": "Juanlu",
+      "position": "MED",
+      "team": "Sevilla",
+      "price": 700000,
+      "url": "/la-liga/players/juanlu-sanchez",
+      "source": "equipo"
+    },
+    {
+      "name": "Risco",
+      "position": "MED",
+      "team": "Getafe",
+      "price": 150000,
+      "url": "/la-liga/players/risco",
+      "source": "equipo"
+    },
+    {
+      "name": "Rodrygo",
+      "position": "DEL",
+      "team": "Real Madrid",
+      "price": 2800000,
+      "url": "/la-liga/players/rodrygo-goes",
+      "source": "equipo"
+    },
+    {
+      "name": "Endrick",
+      "position": "DEL",
+      "team": "Real Madrid",
+      "price": 570000,
+      "url": "/la-liga/players/endrick",
+      "source": "equipo"
+    }
+  ],
+  "market": [
+    {
+      "name": "Álvaro García",
+      "position": "DEL",
+      "team": "Rayo Vallecano",
+      "price": 9300000,
+      "listedPrice": 4650000,
+      "increment": 30000,
+      "url": "/la-liga/players/alvaro-garcia",
+      "source": "mercado"
+    },
+    {
+      "name": "Antonio Blanco",
+      "position": "MED",
+      "team": "Alavés",
+      "price": 4120000,
+      "listedPrice": 2060000,
+      "increment": 30000,
+      "url": "/la-liga/players/antonio-blanco",
+      "source": "mercado"
+    },
+    {
+      "name": "Lejeune",
+      "position": "DEF",
+      "team": "Rayo Vallecano",
+      "price": 10560000,
+      "listedPrice": 5280000,
+      "increment": 20000,
+      "url": "/la-liga/players/lejeune",
+      "source": "mercado"
+    },
+    {
+      "name": "Lenglet",
+      "position": "DEF",
+      "team": "Atlético",
+      "price": 3900000,
+      "listedPrice": 1950000,
+      "increment": 60000,
+      "url": "/la-liga/players/lenglet",
+      "source": "mercado"
+    },
+    {
+      "name": "Areso",
+      "position": "DEF",
+      "team": "Athletic",
+      "price": 7480000,
+      "listedPrice": 3740000,
+      "increment": 10000,
+      "url": "/la-liga/players/jesus-areso",
+      "source": "mercado"
+    },
+    {
+      "name": "Dmitrovic",
+      "position": "PT",
+      "team": "Espanyol",
+      "price": 8100000,
+      "listedPrice": 4050000,
+      "increment": 30000,
+      "url": "/la-liga/players/dmitrovic",
+      "source": "mercado"
+    },
+    {
+      "name": "Puado",
+      "position": "DEL",
+      "team": "Espanyol",
+      "price": 12540000,
+      "listedPrice": 6270000,
+      "increment": 50000,
+      "url": "/la-liga/players/javi-puado",
+      "source": "mercado"
+    },
+    {
+      "name": "Sotelo",
+      "position": "MED",
+      "team": "Celta",
+      "price": 360000,
+      "listedPrice": 180000,
+      "increment": 0,
+      "url": "/la-liga/players/hugo-sotelo",
+      "source": "mercado"
+    },
+    {
+      "name": "Pau Cabanes",
+      "position": "DEL",
+      "team": "Villarreal",
+      "price": 300000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/pau-cabanes",
+      "source": "mercado"
+    },
+    {
+      "name": "Jon Martín",
+      "position": "DEF",
+      "team": "Real Sociedad",
+      "price": 4460000,
+      "listedPrice": 2230000,
+      "increment": 30000,
+      "url": "/la-liga/players/jon-martin",
+      "source": "mercado"
+    },
+    {
+      "name": "Sannadi",
+      "position": "DEL",
+      "team": "Athletic",
+      "price": 6120000,
+      "listedPrice": 3060000,
+      "increment": 10000,
+      "url": "/la-liga/players/maroan-sannadi",
+      "source": "mercado"
+    },
+    {
+      "name": "Pedro Díaz",
+      "position": "MED",
+      "team": "Rayo Vallecano",
+      "price": 6560000,
+      "listedPrice": 3280000,
+      "increment": 70000,
+      "url": "/la-liga/players/pedro-diaz",
+      "source": "mercado"
+    },
+    {
+      "name": "Ahijado",
+      "position": "DEF",
+      "team": "Real Oviedo",
+      "price": 300000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/lucas-ahijado",
+      "source": "mercado"
+    },
+    {
+      "name": "Pedraza",
+      "position": "DEF",
+      "team": "Villarreal",
+      "price": 830000,
+      "listedPrice": 830000,
+      "increment": 10000,
+      "url": "/la-liga/players/alfonso-pedraza",
+      "source": "mercado"
+    },
+    {
+      "name": "Sergio Herrera",
+      "position": "PT",
+      "team": "Osasuna",
+      "price": 4720000,
+      "listedPrice": 4720000,
+      "increment": 30000,
+      "url": "/la-liga/players/sergio-herrera",
+      "source": "mercado"
+    },
+    {
+      "name": "Dani Rodríguez",
+      "position": "MED",
+      "team": "Mallorca",
+      "price": 3390000,
+      "listedPrice": 3390000,
+      "increment": 80000,
+      "url": "/la-liga/players/dani-rodriguez",
+      "source": "mercado"
+    },
+    {
+      "name": "Rubén Sánchez",
+      "position": "DEF",
+      "team": "Espanyol",
+      "price": 150000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/ruben-sanchez",
+      "source": "mercado"
+    },
+    {
+      "name": "Rafa Núñez",
+      "position": "DEL",
+      "team": "Elche",
+      "price": 150000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/rafa-nunez",
+      "source": "mercado"
+    },
+    {
+      "name": "Carmona",
+      "position": "DEF",
+      "team": "Sevilla",
+      "price": 2230000,
+      "listedPrice": 2230000,
+      "increment": 20000,
+      "url": "/la-liga/players/jose-angel-carmona",
+      "source": "mercado"
+    },
+    {
+      "name": "Starfelt",
+      "position": "DEF",
+      "team": "Celta",
+      "price": 2710000,
+      "listedPrice": 2710000,
+      "increment": 20000,
+      "url": "/la-liga/players/carl-starfelt",
+      "source": "mercado"
+    },
+    {
+      "name": "Etienne Eto'o",
+      "position": "DEL",
+      "team": "Rayo Vallecano",
+      "price": 400000,
+      "listedPrice": 400000,
+      "increment": 20000,
+      "url": "/la-liga/players/etienne-etoo",
+      "source": "mercado"
+    },
+    {
+      "name": "Caleta-Car",
+      "position": "DEF",
+      "team": "Real Sociedad",
+      "price": 2850000,
+      "listedPrice": 2850000,
+      "increment": 100000,
+      "url": "/la-liga/players/duje-caleta-car",
+      "source": "mercado"
+    },
+    {
+      "name": "Deossa",
+      "position": "MED",
+      "team": "Betis",
+      "price": 4600000,
+      "listedPrice": 4600000,
+      "increment": 40000,
+      "url": "/la-liga/players/nelson-deossa",
+      "source": "mercado"
+    },
+    {
+      "name": "Krapyvtsov",
+      "position": "PT",
+      "team": "Girona",
+      "price": 150000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/v-krapyvtsov",
+      "source": "mercado"
+    },
+    {
+      "name": "Rondón",
+      "position": "DEL",
+      "team": "Real Oviedo",
+      "price": 2800000,
+      "listedPrice": 2800000,
+      "increment": 40000,
+      "url": "/la-liga/players/rondon",
+      "source": "mercado"
+    },
+    {
+      "name": "Moi Gómez",
+      "position": "MED",
+      "team": "Osasuna",
+      "price": 820000,
+      "listedPrice": 420000,
+      "increment": 10000,
+      "url": "/la-liga/players/moi-gomez",
+      "source": "mercado"
+    },
+    {
+      "name": "Trejo",
+      "position": "MED",
+      "team": "Rayo Vallecano",
+      "price": 320000,
+      "listedPrice": 160000,
+      "increment": 0,
+      "url": "/la-liga/players/oscar-trejo",
+      "source": "mercado"
+    },
+    {
+      "name": "Raba",
+      "position": "DEL",
+      "team": "Valencia",
+      "price": 13560000,
+      "listedPrice": 6830000,
+      "increment": 50000,
+      "url": "/la-liga/players/raba",
+      "source": "mercado"
+    },
+    {
+      "name": "Aitor Fernández",
+      "position": "PT",
+      "team": "Osasuna",
+      "price": 340000,
+      "listedPrice": 170000,
+      "increment": 0,
+      "url": "/la-liga/players/a-fernandez",
+      "source": "mercado"
+    },
+    {
+      "name": "Josan",
+      "position": "MED",
+      "team": "Elche",
+      "price": 3080000,
+      "listedPrice": 1540000,
+      "increment": 0,
+      "url": "/la-liga/players/josan",
+      "source": "mercado"
+    },
+    {
+      "name": "Miguel Rubio",
+      "position": "DEF",
+      "team": "Espanyol",
+      "price": 440000,
+      "listedPrice": 240000,
+      "increment": 20000,
+      "url": "/la-liga/players/miguel-rubio",
+      "source": "mercado"
+    },
+    {
+      "name": "Pubill",
+      "position": "DEF",
+      "team": "Atlético",
+      "price": 5460000,
+      "listedPrice": 2660000,
+      "increment": 70000,
+      "url": "/la-liga/players/marc-pubill",
+      "source": "mercado"
+    },
+    {
+      "name": "Álvaro Carreras",
+      "position": "DEF",
+      "team": "Real Madrid",
+      "price": 11920000,
+      "listedPrice": 5970000,
+      "increment": 10000,
+      "url": "/la-liga/players/alvaro-fernandez-2",
+      "source": "mercado"
+    },
+    {
+      "name": "Javier Rueda",
+      "position": "DEF",
+      "team": "Celta",
+      "price": 300000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/javier-rueda",
+      "source": "mercado"
+    },
+    {
+      "name": "Bretones",
+      "position": "DEF",
+      "team": "Osasuna",
+      "price": 2560000,
+      "listedPrice": 1290000,
+      "increment": 10000,
+      "url": "/la-liga/players/bretones",
+      "source": "mercado"
+    },
+    {
+      "name": "Akor Adams",
+      "position": "DEL",
+      "team": "Sevilla",
+      "price": 5620000,
+      "listedPrice": 2960000,
+      "increment": 150000,
+      "url": "/la-liga/players/akor-adams",
+      "source": "mercado"
+    },
+    {
+      "name": "Jonny Castro",
+      "position": "DEF",
+      "team": "Alavés",
+      "price": 3720000,
+      "listedPrice": 1870000,
+      "increment": 10000,
+      "url": "/la-liga/players/jonny",
+      "source": "mercado"
+    },
+    {
+      "name": "Mario Martín",
+      "position": "MED",
+      "team": "Getafe",
+      "price": 2800000,
+      "listedPrice": 1340000,
+      "increment": 60000,
+      "url": "/la-liga/players/mario-martin",
+      "source": "mercado"
+    },
+    {
+      "name": "Pablo Martínez",
+      "position": "MED",
+      "team": "Levante",
+      "price": 5300000,
+      "listedPrice": 2680000,
+      "increment": 30000,
+      "url": "/la-liga/players/pablo-martinez",
+      "source": "mercado"
+    },
+    {
+      "name": "Diego Rico",
+      "position": "DEF",
+      "team": "Getafe",
+      "price": 5960000,
+      "listedPrice": 2940000,
+      "increment": 40000,
+      "url": "/la-liga/players/diego-rico",
+      "source": "mercado"
+    },
+    {
+      "name": "Moncayola",
+      "position": "MED",
+      "team": "Osasuna",
+      "price": 4680000,
+      "listedPrice": 2360000,
+      "increment": 20000,
+      "url": "/la-liga/players/moncayola",
+      "source": "mercado"
+    },
+    {
+      "name": "Lemar",
+      "position": "MED",
+      "team": "Girona",
+      "price": 6960000,
+      "listedPrice": 3540000,
+      "increment": 60000,
+      "url": "/la-liga/players/thomas-lemar",
+      "source": "mercado"
+    },
+    {
+      "name": "Koundé",
+      "position": "DEF",
+      "team": "Barcelona",
+      "price": 17060000,
+      "listedPrice": 8560000,
+      "increment": 30000,
+      "url": "/la-liga/players/jules-kounde",
+      "source": "mercado"
+    },
+    {
+      "name": "Baena",
+      "position": "MED",
+      "team": "Atlético",
+      "price": 27220000,
+      "listedPrice": 13630000,
+      "increment": 20000,
+      "url": "/la-liga/players/alex-baena",
+      "source": "mercado"
+    },
+    {
+      "name": "Carlos Martín",
+      "position": "DEL",
+      "team": "Atlético",
+      "price": 820000,
+      "listedPrice": 410000,
+      "increment": 0,
+      "url": "/la-liga/players/carlos-martin",
+      "source": "mercado"
+    },
+    {
+      "name": "Tchouameni",
+      "position": "MED",
+      "team": "Real Madrid",
+      "price": 12220000,
+      "listedPrice": 6130000,
+      "increment": 20000,
+      "url": "/la-liga/players/tchouameni",
+      "source": "mercado"
+    },
+    {
+      "name": "Sow",
+      "position": "MED",
+      "team": "Sevilla",
+      "price": 3460000,
+      "listedPrice": 1770000,
+      "increment": 40000,
+      "url": "/la-liga/players/djibril-sow",
+      "source": "mercado"
+    },
+    {
+      "name": "Etta Eyong",
+      "position": "DEL",
+      "team": "Villarreal",
+      "price": 7060000,
+      "listedPrice": 3630000,
+      "increment": 100000,
+      "url": "/la-liga/players/etta-eyong",
+      "source": "mercado"
+    },
+    {
+      "name": "Asano",
+      "position": "DEL",
+      "team": "Mallorca",
+      "price": 2500000,
+      "listedPrice": 1280000,
+      "increment": 30000,
+      "url": "/la-liga/players/takuma-asano",
+      "source": "mercado"
+    },
+    {
+      "name": "Buchanan",
+      "position": "MED",
+      "team": "Villarreal",
+      "price": 4380000,
+      "listedPrice": 2290000,
+      "increment": 100000,
+      "url": "/la-liga/players/tajon-buchanan",
+      "source": "mercado"
+    },
+    {
+      "name": "Luengo",
+      "position": "DEF",
+      "team": "Real Oviedo",
+      "price": 2400000,
+      "listedPrice": 1220000,
+      "increment": 20000,
+      "url": "/la-liga/players/oier-luengo",
+      "source": "mercado"
+    },
+    {
+      "name": "Gorrotxategi",
+      "position": "MED",
+      "team": "Real Sociedad",
+      "price": 6140000,
+      "listedPrice": 3000000,
+      "increment": 70000,
+      "url": "/la-liga/players/j-gorrotxategi",
+      "source": "mercado"
+    },
+    {
+      "name": "Paredes",
+      "position": "DEF",
+      "team": "Athletic",
+      "price": 10850000,
+      "listedPrice": 1960000,
+      "increment": 100000,
+      "url": "/la-liga/players/aitor-paredes",
+      "source": "mercado"
+    },
+    {
+      "name": "Kike García",
+      "position": "DEL",
+      "team": "Espanyol",
+      "price": 4620000,
+      "listedPrice": 3870000,
+      "increment": 20000,
+      "url": "/la-liga/players/kike-garcia",
+      "source": "mercado"
+    },
+    {
+      "name": "Firpo",
+      "position": "DEF",
+      "team": "Betis",
+      "price": 4032000,
+      "listedPrice": 3330000,
+      "increment": 30000,
+      "url": "/la-liga/players/junior-firpo",
+      "source": "mercado"
+    },
+    {
+      "name": "Lunin",
+      "position": "PT",
+      "team": "Real Madrid",
+      "price": 348000,
+      "listedPrice": 290000,
+      "increment": 0,
+      "url": "/la-liga/players/andriy-lunin",
+      "source": "mercado"
+    },
+    {
+      "name": "Pedrosa",
+      "position": "DEF",
+      "team": "Sevilla",
+      "price": 888000,
+      "listedPrice": 720000,
+      "increment": 20000,
+      "url": "/la-liga/players/pedrosa",
+      "source": "mercado"
+    },
+    {
+      "name": "Víctor García",
+      "position": "DEF",
+      "team": "Levante",
+      "price": 840000,
+      "listedPrice": 690000,
+      "increment": 10000,
+      "url": "/la-liga/players/victor-garcia",
+      "source": "mercado"
+    },
+    {
+      "name": "Natan",
+      "position": "DEF",
+      "team": "Betis",
+      "price": 3636000,
+      "listedPrice": 3050000,
+      "increment": 20000,
+      "url": "/la-liga/players/natan",
+      "source": "mercado"
+    },
+    {
+      "name": "Raphinha",
+      "position": "DEL",
+      "team": "Barcelona",
+      "price": 22128000,
+      "listedPrice": 18310000,
+      "increment": 130000,
+      "url": "/la-liga/players/raphinha",
+      "source": "mercado"
+    },
+    {
+      "name": "Carlos Vicente",
+      "position": "DEL",
+      "team": "Alavés",
+      "price": 5868000,
+      "listedPrice": 4910000,
+      "increment": 20000,
+      "url": "/la-liga/players/carlos-vicente",
+      "source": "mercado"
+    },
+    {
+      "name": "Sibo",
+      "position": "MED",
+      "team": "Real Oviedo",
+      "price": 2136000,
+      "listedPrice": 1800000,
+      "increment": 20000,
+      "url": "/la-liga/players/kwasi-sibo",
+      "source": "mercado"
+    },
+    {
+      "name": "Dolan",
+      "position": "DEL",
+      "team": "Espanyol",
+      "price": 1560000,
+      "listedPrice": 1260000,
+      "increment": 40000,
+      "url": "/la-liga/players/dolan",
+      "source": "mercado"
+    },
+    {
+      "name": "Manu Fernández",
+      "position": "DEF",
+      "team": "Celta",
+      "price": 225000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/manu-fernandez",
+      "source": "mercado"
+    },
+    {
+      "name": "Yuri",
+      "position": "DEF",
+      "team": "Athletic",
+      "price": 4035000,
+      "listedPrice": 2710000,
+      "increment": 20000,
+      "url": "/la-liga/players/yuri-berchiche",
+      "source": "mercado"
+    },
+    {
+      "name": "Budimir",
+      "position": "DEL",
+      "team": "Osasuna",
+      "price": 17100000,
+      "listedPrice": 11410000,
+      "increment": 10000,
+      "url": "/la-liga/players/ante-budimir",
+      "source": "mercado"
+    },
+    {
+      "name": "Arda Güler",
+      "position": "MED",
+      "team": "Real Madrid",
+      "price": 16695000,
+      "listedPrice": 11170000,
+      "increment": 40000,
+      "url": "/la-liga/players/arda-guler",
+      "source": "mercado"
+    },
+    {
+      "name": "Luka Ilic",
+      "position": "MED",
+      "team": "Real Oviedo",
+      "price": 4770000,
+      "listedPrice": 3210000,
+      "increment": 30000,
+      "url": "/la-liga/players/luka-ilic",
+      "source": "mercado"
+    },
+    {
+      "name": "Iñaki Peña",
+      "position": "PT",
+      "team": "Barcelona",
+      "price": 280000,
+      "listedPrice": 280000,
+      "increment": 0,
+      "url": "/la-liga/players/inaki-pena",
+      "source": "mercado"
+    },
+    {
+      "name": "Mojica",
+      "position": "DEF",
+      "team": "Mallorca",
+      "price": 2910000,
+      "listedPrice": 2860000,
+      "increment": 50000,
+      "url": "/la-liga/players/johan-mojica",
+      "source": "mercado"
+    },
+    {
+      "name": "Óscar Clemente",
+      "position": "MED",
+      "team": "Levante",
+      "price": 150000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/oscar-clemente",
+      "source": "mercado"
+    },
+    {
+      "name": "Miovski",
+      "position": "DEL",
+      "team": "Girona",
+      "price": 150000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/bojan-miovski",
+      "source": "mercado"
+    },
+    {
+      "name": "André Almeida",
+      "position": "MED",
+      "team": "Valencia",
+      "price": 2040000,
+      "listedPrice": 2000000,
+      "increment": 40000,
+      "url": "/la-liga/players/andre-almeida-2",
+      "source": "mercado"
+    },
+    {
+      "name": "Olasagasti",
+      "position": "MED",
+      "team": "Levante",
+      "price": 2440000,
+      "listedPrice": 2270000,
+      "increment": 170000,
+      "url": "/la-liga/players/jon-ander-olasagasti",
+      "source": "mercado"
+    },
+    {
+      "name": "Pelayo",
+      "position": "DEF",
+      "team": "Rayo Vallecano",
+      "price": 150000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/pelayo",
+      "source": "mercado"
+    },
+    {
+      "name": "Forés",
+      "position": "DEL",
+      "team": "Real Oviedo",
+      "price": 270000,
+      "listedPrice": 270000,
+      "increment": 0,
+      "url": "/la-liga/players/alex-fores",
+      "source": "mercado"
+    },
+    {
+      "name": "Bellerín",
+      "position": "DEF",
+      "team": "Betis",
+      "price": 3550000,
+      "listedPrice": 790000,
+      "increment": 40000,
+      "url": "/la-liga/players/h-bellerin",
+      "source": "mercado"
+    },
+    {
+      "name": "Pere Milla",
+      "position": "DEL",
+      "team": "Espanyol",
+      "price": 750000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/pere-milla",
+      "source": "mercado"
+    },
+    {
+      "name": "Vivian",
+      "position": "DEF",
+      "team": "Athletic",
+      "price": 31950000,
+      "listedPrice": 6420000,
+      "increment": 20000,
+      "url": "/la-liga/players/dani-vivian",
+      "source": "mercado"
+    },
+    {
+      "name": "Ratiu",
+      "position": "DEF",
+      "team": "Rayo Vallecano",
+      "price": 23900000,
+      "listedPrice": 4720000,
+      "increment": 60000,
+      "url": "/la-liga/players/andrei-ratiu",
+      "source": "mercado"
+    },
+    {
+      "name": "Ristic",
+      "position": "DEF",
+      "team": "Celta",
+      "price": 750000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/mihailo-ristic",
+      "source": "mercado"
+    },
+    {
+      "name": "Luiz Júnior",
+      "position": "PT",
+      "team": "Villarreal",
+      "price": 18850000,
+      "listedPrice": 3840000,
+      "increment": 40000,
+      "url": "/la-liga/players/luiz-junior",
+      "source": "mercado"
+    },
+    {
+      "name": "Bekhoucha",
+      "position": "DEF",
+      "team": "Getafe",
+      "price": 750000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/bekhoucha",
+      "source": "mercado"
+    },
+    {
+      "name": "Koke",
+      "position": "MED",
+      "team": "Atlético",
+      "price": 1420000,
+      "listedPrice": 710000,
+      "increment": 0,
+      "url": "/la-liga/players/koke",
+      "source": "mercado"
+    },
+    {
+      "name": "Foulquier",
+      "position": "DEF",
+      "team": "Valencia",
+      "price": 2800000,
+      "listedPrice": 1450000,
+      "increment": 30000,
+      "url": "/la-liga/players/foulquier",
+      "source": "mercado"
+    },
+    {
+      "name": "Gerard Moreno",
+      "position": "DEL",
+      "team": "Villarreal",
+      "price": 9740000,
+      "listedPrice": 4980000,
+      "increment": 60000,
+      "url": "/la-liga/players/gerard-moreno",
+      "source": "mercado"
+    },
+    {
+      "name": "De Galarreta",
+      "position": "MED",
+      "team": "Athletic",
+      "price": 6940000,
+      "listedPrice": 3490000,
+      "increment": 10000,
+      "url": "/la-liga/players/ruiz-de-galarreta",
+      "source": "mercado"
+    },
+    {
+      "name": "Carreira",
+      "position": "DEF",
+      "team": "Celta",
+      "price": 3740000,
+      "listedPrice": 1930000,
+      "increment": 30000,
+      "url": "/la-liga/players/sergio-carreira",
+      "source": "mercado"
+    },
+    {
+      "name": "Leo Román",
+      "position": "PT",
+      "team": "Mallorca",
+      "price": 7880000,
+      "listedPrice": 4030000,
+      "increment": 50000,
+      "url": "/la-liga/players/leo-roman",
+      "source": "mercado"
+    },
+    {
+      "name": "Luis Milla",
+      "position": "MED",
+      "team": "Getafe",
+      "price": 10640000,
+      "listedPrice": 5420000,
+      "increment": 60000,
+      "url": "/la-liga/players/luis-milla",
+      "source": "mercado"
+    },
+    {
+      "name": "Pablo García",
+      "position": "DEL",
+      "team": "Betis",
+      "price": 2200000,
+      "listedPrice": 1380000,
+      "increment": 160000,
+      "url": "/la-liga/players/pablo-garcia",
+      "source": "mercado"
+    },
+    {
+      "name": "Ramón Martínez",
+      "position": "DEF",
+      "team": "Sevilla",
+      "price": 300000,
+      "listedPrice": 150000,
+      "increment": 0,
+      "url": "/la-liga/players/ramon-martinez",
+      "source": "mercado"
+    }
+  ]
 }
