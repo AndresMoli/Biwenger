@@ -1,53 +1,67 @@
+# 📊 Biwenger Scraper & Dashboard
 
-# Biwenger Scraper (Playwright) + GitHub Pages
+Este proyecto automatiza la extracción de datos de **Biwenger** (tu equipo y el mercado) usando [Playwright](https://playwright.dev/) y los publica en GitHub Pages.
 
-Extrae automáticamente tu **plantilla** y **mercado** de Biwenger y publica un **JSON público** para que tu analista (yo 😉) lo lea sin que tengas que pasar nada.
+---
 
-## ¿Qué hace?
-- Inicia sesión en Biwenger con Playwright.
-- Visita tu **equipo** y el **mercado** de tu liga.
-- Extrae jugadores (nombre, posición, precio, estado) y tu **saldo** (si es detectable).
-- Genera `public/data.json` y lo publica en **GitHub Pages** (branch `gh-pages`).
+## 🚀 ¿Qué hace?
 
-## Requisitos
-- Cuenta de GitHub.
-- Crear **Secrets** en el repositorio:
-  - `BIWENGER_EMAIL`
-  - `BIWENGER_PASSWORD`
-  - `LIGA_ID` (el ID numérico de tu liga, p. ej. `123456`).
+1. **Inicia sesión** en Biwenger (idioma forzado a español).
+2. **Captura datos** de:
+   - Tu **equipo** (`/team`)
+   - El **mercado** (`/market`)
+   - **Saldo disponible**
+3. Guarda:
+   - `data.json` con toda la información estructurada.
+   - Capturas de pantalla (`public/*.png`) para depuración.
+4. Publica todo en **GitHub Pages** (rama `gh-pages`).
 
-> **Aviso:** Biwenger no tiene API pública y puede cambiar su interfaz. Este scraper usa selectores "elásticos". Si cambia mucho, habrá que ajustar los selectores.
+---
 
-## Pasos de instalación (rápidos)
-1. Crea un repositorio vacío en GitHub (público o privado).
-2. Sube estos archivos al repositorio (o arrastra el ZIP entero).
-3. Ve a **Settings → Secrets and variables → Actions → New repository secret** y añade:
-   - `BIWENGER_EMAIL` = tu email de Biwenger
-   - `BIWENGER_PASSWORD` = tu contraseña
-   - `LIGA_ID` = el ID de tu liga
-4. Activa **Pages**:
-   - En **Settings → Pages**, elige **Deploy from a branch**.
-   - **Branch:** `gh-pages` / **folder:** `/ (root)`.
-5. Lanza el workflow manualmente la primera vez:
-   - Pestaña **Actions → Scrape Biwenger → Run workflow**.
-6. En cuanto termine, tu JSON estará en:
-   - `https://TU_USUARIO.github.io/TU_REPO/data.json`
+## 📂 Estructura de ramas
 
-## Uso
-Cada día a las **07:00 (hora España)** el workflow correrá solo (cron `05:00 UTC`). Yo podré leer esa URL y preparar tu **informe de jornada** sin que me pases nada.
+- **[main](https://github.com/andresmoli/Biwenger/tree/main)** → Código fuente y workflow.
+  - [`src/run.js`](https://github.com/andresmoli/Biwenger/blob/main/src/run.js) → Script principal de Playwright.
+  - `.github/workflows/` → Workflow de GitHub Actions.
 
-## Estructura del JSON
-```json
-{
-  "scrapedAt": "2025-08-10T05:00:00.000Z",
-  "leagueId": "123456",
-  "balance": 5340000,
-  "team": [ { "name": "...", "position": "DEF", "team": "RMA", "price": 4500000, "status": "ok" } ],
-  "market": [ { "name": "...", "position": "MED", "price": 3200000, "trend": "+3%" } ]
-}
-```
+- **[gh-pages](https://github.com/andresmoli/Biwenger/tree/gh-pages)** → Resultados publicados.
+  - [`data.json`](https://raw.githubusercontent.com/andresmoli/Biwenger/gh-pages/data.json) → Datos estructurados (equipo + mercado + saldo).
+  - [`99-ok.png`](https://andresmoli.github.io/Biwenger/99-ok.png) → Captura final de la ejecución.
+  - [`equipo.png`](https://andresmoli.github.io/Biwenger/equipo.png) → Imagen completa de tu plantilla.
 
-## Notas
-- Si tu equipo/mercado no cargan por cookies/popup, prueba lanzar el workflow manualmente y revisa el log.
-- Ajusta el cron en `.github/workflows/scrape.yml` si quieres otra hora.
-- Puedes ampliar el scraper con más campos (rival próxima jornada, % titularidad, etc.) si se ven en tu liga.
+---
+
+## 🌍 Acceso rápido a los resultados
+
+- **JSON en crudo:**  
+  [`data.json`](https://raw.githubusercontent.com/andresmoli/Biwenger/gh-pages/data.json)
+
+- **Dashboard visual (GitHub Pages):**  
+  [andresmoli.github.io/Biwenger](https://andresmoli.github.io/Biwenger/)
+
+- **Capturas:**  
+  - [99-ok.png](https://andresmoli.github.io/Biwenger/99-ok.png)  
+  - [equipo.png](https://andresmoli.github.io/Biwenger/equipo.png)
+
+---
+
+## ⚙️ Variables necesarias
+
+Configura en **Settings → Secrets and variables → Actions**:
+
+| Variable             | Descripción                        |
+|----------------------|------------------------------------|
+| `BIWENGER_EMAIL`     | Email de tu cuenta Biwenger        |
+| `BIWENGER_PASSWORD`  | Contraseña de tu cuenta            |
+| `LIGA_ID`            | ID de tu liga (en la URL de la liga) |
+
+---
+
+## 📸 Ejemplo de salida
+
+![Equipo](https://andresmoli.github.io/Biwenger/equipo.png)
+
+---
+
+✏️ **Autor:** [@andresmoli](https://github.com/andresmoli)  
+💡 **Automatizado con:** GitHub Actions + Playwright
