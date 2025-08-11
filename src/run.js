@@ -184,25 +184,74 @@ async function scrapeTeam(page) {
   return players;
 }
 
-// (Opcional) Clausula entrando en la ficha del jugador
-async function enrichClause(context, players) {
+// Enriquecer SIEMPRE con cláusula y propietario visitando la ficha del jugador
+async function enrichFromProfile(context, players, concurrency = 5) {
   if (!players?.length) return players;
-  const page = await context.newPage();
-  for (let i = 0; i < players.length; i++) {
-    const p = players[i];
-    if (!p.url) continue;
+
+  // limitador de concurrencia sencillo
+  let idx = 0;
+  const out = players.map(p => ({ ...p }));
+  async function worker() {
+    const page = await context.newPage();
     try {
-      const full = p.url.startsWith('http') ? p.url : `https://biwenger.as.com${p.url}`;
-      await page.goto(full, { waitUntil: 'networkidle' });
-      // Busca "Cláusula de X €"
-      const txt = await page.locator('body').innerText();
-      const m = txt.match(/Cláusula(?: de)?\s+([\d\.]+)\s*€/i);
-      if (m && m[1]) players[i].clause = Number(m[1].replace(/\./g,''));
-    } catch {}
+      while (idx < players.length) {
+        const i = idx++;
+        const p = players[i];
+        if (!p?.url) continue;
+
+        const full = p.url.startsWith('http') ? p.url : `https://biwenger.as.com${p.url}`;
+        try {
+          await page.goto(full, { waitUntil: 'domcontentloaded' });
+          // espera “suave”: la ficha termina de pintar componentes Angular
+          await page.waitForTimeout(600);
+          // intenta esperar al bloque de cláusula si existe
+          await page.waitForSelector('player-clause, span:has-text("Cláusula")', { timeout: 4000 }).catch(()=>{});
+
+          const details = await page.evaluate(() => {
+            const C = (s)=>String(s||'').replace(/\u00A0/g,' ').replace(/\s+/g,' ').trim();
+            const M = (s)=>{ const m=C(s).match(/(\d[\d\.]*)/); return m?Number(m[1].replace(/\./g,'')):null; };
+
+            // Cláusula y depositado
+            let clause = null, clauseDeposited = null;
+            const clauseBlock = document.querySelector('player-clause') || document.querySelector('span:has(> strong)');
+            if (clauseBlock) {
+              const strongs = clauseBlock.querySelectorAll('strong');
+              if (strongs[0]) clause = M(strongs[0].textContent);
+              if (strongs[1]) clauseDeposited = M(strongs[1].textContent);
+              // fallback por texto
+              if (!clause) {
+                const t = C(clauseBlock.textContent || '');
+                const m = t.match(/Cláusula.*?([\d\.]+)\s*€/i);
+                if (m) clause = M(m[1]);
+              }
+            }
+
+            // Propietario actual (bloque “Propietario …”)
+            let owner = null, ownerUrl = null;
+            const ownerLink = document.querySelector('div:has(> user-link) a[href^="/user/"]') ||
+                              document.querySelector('a[href^="/user/"]');
+            if (ownerLink) {
+              owner = C(ownerLink.textContent);
+              ownerUrl = ownerLink.getAttribute('href') || null;
+            }
+
+            return { clause, clauseDeposited, owner, ownerUrl };
+          });
+
+          out[i] = { ...out[i], ...details };
+        } catch { /* continuar con el resto */ }
+      }
+    } finally {
+      await page.close();
+    }
   }
-  await page.close();
-  return players;
+
+  // lanzar N workers
+  const workers = Array.from({ length: Math.min(concurrency, players.length) }, () => worker());
+  await Promise.all(workers);
+  return out;
 }
+
 
 // ------------ Run ------------
 async function run() {
@@ -223,18 +272,18 @@ async function run() {
     await login(page);
     await openLeague(page);
 
+
+
     // Equipo
     await openTab(page, 'Equipo', 'team');
     let team = await scrapeTeam(page);
-    await snap(page, '04-equipo'); // imagen específica de tu plantilla
-
-    if (String(FETCH_CLAUSE).toLowerCase() === 'true') {
-      team = await enrichClause(context, team);
-    }
-
+    await snap(page, '04-equipo');  // imagen específica de tu plantilla
+    team = await enrichFromProfile(context, team);  // ← SIEMPRE añade cláusula/propietario
+    
     // Mercado
     await openTab(page, 'Mercado', 'market');
-    const { players: market, balance } = await scrapeMarket(page);
+    let { players: market, balance } = await scrapeMarket(page);
+    market = await enrichFromProfile(context, market); // ← también para los del mercado
 
     // Guardado principal + histórico con timestamp
     const now = new Date();
