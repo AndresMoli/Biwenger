@@ -49,10 +49,6 @@ async function killOverlays(page) {
   });
 }
 
-// bloquea imágenes/campañas que suelen crear overlays
-await context.route('**/*campaigns/**', r => r.abort());
-await context.route('**/cdn-cgi/image/**/campaigns/**', r => r.abort());
-
 
 // ------------ Login / Navegación ------------
 async function acceptCookies(page) {
@@ -281,6 +277,10 @@ async function run() {
     locale: 'es-ES',
     extraHTTPHeaders: { 'Accept-Language': 'es-ES,es;q=0.9' }
   });
+
+  // bloquea imágenes/campañas que suelen crear overlays
+  await context.route('**/*campaigns/**', r => r.abort());
+  await context.route('**/cdn-cgi/image/**/campaigns/**', r => r.abort());
   const page = await context.newPage();
 
   try {
