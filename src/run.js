@@ -268,22 +268,26 @@ async function run() {
   const page = await context.newPage();
 
   try {
-    // Login + liga
+    // 1) Login y liga
+    console.log('➡️ Login…');
     await login(page);
+    console.log('➡️ Liga…');
     await openLeague(page);
 
-
-
-    // Equipo
+    // 2) Equipo
+    console.log('➡️ Equipo…');
     await openTab(page, 'Equipo', 'team');
     let team = await scrapeTeam(page);
     await snap(page, '04-equipo');  // imagen específica de tu plantilla
     team = await enrichFromProfile(context, team);  // ← SIEMPRE añade cláusula/propietario
+    console.log(`✅ Equipo: ${team.length}`);
     
-    // Mercado
+    // 3) Mercado
+    console.log('➡️ Mercado…');
     await openTab(page, 'Mercado', 'market');
     let { players: market, balance } = await scrapeMarket(page);
     market = await enrichFromProfile(context, market); // ← también para los del mercado
+    console.log(`✅ Mercado: ${market.length} | Saldo: ${balance ?? 'n/d'}`);
 
     // Guardado principal + histórico con timestamp
     const now = new Date();
