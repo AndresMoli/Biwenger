@@ -272,7 +272,11 @@ async function run() {
     console.log('➡️ Equipo…');
     await openTab(page, 'Equipo', 'team');
     const team = await scrapeTeam(page);
+    // 📸 Captura específica del equipo
+    await snap(page, '04-equipo');
     console.log(`✅ Equipo: ${team.length}`);
+
+    
 
     // 3) Mercado
     console.log('➡️ Mercado…');
