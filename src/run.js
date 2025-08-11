@@ -39,6 +39,21 @@ async function clickIfVisible(page, selector, timeout = 6000) {
   return false;
 }
 
+async function killOverlays(page) {
+  // cierra por teclado y elimina nodos overlay si existen
+  try { await page.keyboard.press('Escape'); } catch {}
+  await page.evaluate(() => {
+    document.querySelectorAll('.cdk-overlay-container, .cdk-overlay-backdrop, [class*="overlay"]').forEach(n => {
+      try { n.remove(); } catch {}
+    });
+  });
+}
+
+// bloquea imágenes/campañas que suelen crear overlays
+await context.route('**/*campaigns/**', r => r.abort());
+await context.route('**/cdn-cgi/image/**/campaigns/**', r => r.abort());
+
+
 // ------------ Login / Navegación ------------
 async function acceptCookies(page) {
   const sels = [
@@ -50,6 +65,7 @@ async function acceptCookies(page) {
 
 async function login(page) {
   await page.goto('https://biwenger.as.com/', { waitUntil: 'networkidle' });
+  await killOverlays(page);
   await snap(page,'01-home');
   await acceptCookies(page);
   await clickIfVisible(page, 'text=/¡?COMIENZA A JUGAR!?/i');
@@ -72,6 +88,7 @@ async function login(page) {
 
 async function openLeague(page) {
   await page.goto(`https://biwenger.as.com/league/${LIGA_ID}`, { waitUntil: 'networkidle' });
+  await killOverlays(page);
   await page.waitForTimeout(600);
   await snap(page,'03-league');
 }
@@ -272,11 +289,13 @@ async function run() {
     await login(page);
     console.log('➡️ Liga…');
     await openLeague(page);
+    await killOverlays(page);
 
     // 2) Equipo
     console.log('➡️ Equipo…');
     await openTab(page, 'Equipo', 'team');
     let team = await scrapeTeam(page);
+    await killOverlays(page);
     await snap(page, '04-equipo');  // imagen específica de tu plantilla
     team = await enrichFromProfile(context, team);  // ← SIEMPRE añade cláusula/propietario
     console.log(`✅ Equipo: ${team.length}`);
@@ -284,6 +303,7 @@ async function run() {
     // 3) Mercado
     console.log('➡️ Mercado…');
     await openTab(page, 'Mercado', 'market');
+    await killOverlays(page);
     let { players: market, balance } = await scrapeMarket(page);
     market = await enrichFromProfile(context, market); // ← también para los del mercado
     console.log(`✅ Mercado: ${market.length} | Saldo: ${balance ?? 'n/d'}`);
