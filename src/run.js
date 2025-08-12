@@ -367,6 +367,7 @@ async function run() {
     await ensureDir(OUT_DIR);
     const jsonStr = JSON.stringify(payload, null, 2);
     fs.writeFileSync(OUT_PATH, jsonStr);
+    fs.writeFileSync(OUT_PATH.replace('json','txt'), jsonStr);
     await saveToGist(jsonStr);
     // histórico: añade sin reemplazar existentes
     const dataHistPath = path.join(histDir, `data_${tsFile}.json`);
