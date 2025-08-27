@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2025-08-27T17:53:16.566Z",
+  "scrapedAt": "2025-08-27T21:31:28.912Z",
   "leagueId": "drbLSZtcWd7r",
   "balance": 4564700,
   "team": [
@@ -9,10 +9,6 @@
       "team": "Real Sociedad",
       "price": 5200000,
       "url": "/la-liga/players/alex-remiro",
-      "clause": 15000500,
-      "clauseDeposited": 2269000,
-      "owner": "",
-      "ownerUrl": "/user/los-cholitoos-12726359",
       "source": "equipo"
     },
     {
@@ -21,10 +17,6 @@
       "team": "Betis",
       "price": 410000,
       "url": "/la-liga/players/r-rodriguez",
-      "clause": 615000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/los-cholitoos-12726359",
       "source": "equipo"
     },
     {
@@ -33,10 +25,6 @@
       "team": "Atlético",
       "price": 3830000,
       "url": "/la-liga/players/le-normand",
-      "clause": 10350500,
-      "clauseDeposited": 484000,
-      "owner": "",
-      "ownerUrl": "/user/los-cholitoos-12726359",
       "source": "equipo"
     },
     {
@@ -45,10 +33,6 @@
       "team": "Girona",
       "price": 160000,
       "url": "/la-liga/players/frances",
-      "clause": 240000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/los-cholitoos-12726359",
       "source": "equipo"
     },
     {
@@ -57,10 +41,6 @@
       "team": "Real Madrid",
       "price": 13780000,
       "url": "/la-liga/players/fede-valverde",
-      "clause": 23460000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/los-cholitoos-12726359",
       "source": "equipo"
     },
     {
@@ -69,10 +49,6 @@
       "team": "Mallorca",
       "price": 2730000,
       "url": "/la-liga/players/dani-rodriguez",
-      "clause": 5085000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/los-cholitoos-12726359",
       "source": "equipo"
     },
     {
@@ -81,10 +57,6 @@
       "team": "Rayo Vallecano",
       "price": 870000,
       "url": "/la-liga/players/o-valentin",
-      "clause": 1605000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/los-cholitoos-12726359",
       "source": "equipo"
     },
     {
@@ -93,10 +65,6 @@
       "team": "Real Madrid",
       "price": 550000,
       "url": "/la-liga/players/endrick",
-      "clause": 900000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/los-cholitoos-12726359",
       "source": "equipo"
     }
   ],
@@ -110,10 +78,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 9:08",
       "url": "/la-liga/players/h-bellerin",
-      "clause": 4510000,
-      "clauseDeposited": 830000,
-      "owner": "",
-      "ownerUrl": "/user/emre-team-6720619",
       "source": "mercado"
     },
     {
@@ -125,10 +89,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 9:07",
       "url": "/la-liga/players/ivan-romero",
-      "clause": 5295000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/emre-team-6720619",
       "source": "mercado"
     },
     {
@@ -140,10 +100,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 9:07",
       "url": "/la-liga/players/alejandro-balde",
-      "clause": 10080000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/emre-team-6720619",
       "source": "mercado"
     },
     {
@@ -155,10 +111,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 9:07",
       "url": "/la-liga/players/ejuke",
-      "clause": 3510031,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/emre-team-6720619",
       "source": "mercado"
     },
     {
@@ -170,10 +122,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 9:07",
       "url": "/la-liga/players/rodrygo-goes",
-      "clause": 6142500,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/emre-team-6720619",
       "source": "mercado"
     },
     {
@@ -185,10 +133,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 9:07",
       "url": "/la-liga/players/hugo-sotelo",
-      "clause": 5000158,
-      "clauseDeposited": 1817579,
-      "owner": "",
-      "ownerUrl": "/user/emre-team-6720619",
       "source": "mercado"
     },
     {
@@ -200,10 +144,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 9:06",
       "url": "/la-liga/players/g-lo-celso",
-      "clause": 15330000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/emre-team-6720619",
       "source": "mercado"
     },
     {
@@ -215,10 +155,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 5:04",
       "url": "/la-liga/players/manu-fernandez",
-      "clause": 288000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -230,10 +166,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 5:03",
       "url": "/la-liga/players/sivera",
-      "clause": 6375000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -242,13 +174,9 @@
       "team": "Real Madrid",
       "price": 1780000,
       "listedPrice": 1780000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/dani-ceballos",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -257,13 +185,9 @@
       "team": "Betis",
       "price": 570000,
       "listedPrice": 570000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/bakambu",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -272,13 +196,9 @@
       "team": "Betis",
       "price": 5730000,
       "listedPrice": 5730000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/rodrigo-riquelme",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -287,13 +207,9 @@
       "team": "Valencia",
       "price": 1380000,
       "listedPrice": 1380000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/m-diakhaby",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -302,13 +218,9 @@
       "team": "Real Oviedo",
       "price": 2430000,
       "listedPrice": 2430000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/santi-cazorla",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -317,13 +229,9 @@
       "team": "Rayo Vallecano",
       "price": 250000,
       "listedPrice": 250000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/randy-nteka",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -332,13 +240,9 @@
       "team": "Villarreal",
       "price": 5090000,
       "listedPrice": 5090000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/sergi-cardona",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -347,13 +251,9 @@
       "team": "Osasuna",
       "price": 1090000,
       "listedPrice": 1090000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/bretones",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -362,13 +262,9 @@
       "team": "Espanyol",
       "price": 150000,
       "listedPrice": 150000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/pablo-ramon",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -377,13 +273,9 @@
       "team": "Sevilla",
       "price": 150000,
       "listedPrice": 150000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/ramon-martinez",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -392,13 +284,9 @@
       "team": "Real Oviedo",
       "price": 150000,
       "listedPrice": 150000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/lucas-ahijado",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -407,13 +295,9 @@
       "team": "Levante",
       "price": 3300000,
       "listedPrice": 3300000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/pablo-campos",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -422,28 +306,9 @@
       "team": "Sevilla",
       "price": 2440000,
       "listedPrice": 2440000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/o-vlachodimos",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "source": "mercado"
-    },
-    {
-      "name": "Foulquier",
-      "position": "DEF",
-      "team": "Valencia",
-      "price": 3260000,
-      "listedPrice": 1610000,
-      "timeRemaining": "en 2 días",
-      "deadline": "29/8/25, 4:48",
-      "url": "/la-liga/players/foulquier",
-      "clause": 2415000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/forza-depor-3712719",
       "source": "mercado"
     },
     {
@@ -455,10 +320,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 4:48",
       "url": "/la-liga/players/omar-mascarell",
-      "clause": 885000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/forza-depor-3712719",
       "source": "mercado"
     },
     {
@@ -470,10 +331,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 4:48",
       "url": "/la-liga/players/alex-sola",
-      "clause": 383250,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/forza-depor-3712719",
       "source": "mercado"
     },
     {
@@ -485,10 +342,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 4:48",
       "url": "/la-liga/players/pere-milla",
-      "clause": 3940600,
-      "clauseDeposited": 530300,
-      "owner": "",
-      "ownerUrl": "/user/forza-depor-3712719",
       "source": "mercado"
     },
     {
@@ -500,10 +353,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 4:48",
       "url": "/la-liga/players/leo-roman",
-      "clause": 6465000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/forza-depor-3712719",
       "source": "mercado"
     },
     {
@@ -515,10 +364,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 4:48",
       "url": "/la-liga/players/mbappe",
-      "clause": 34856550,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/forza-depor-3712719",
       "source": "mercado"
     },
     {
@@ -530,10 +375,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 4:48",
       "url": "/la-liga/players/ilaix-moriba",
-      "clause": 5520000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/forza-depor-3712719",
       "source": "mercado"
     },
     {
@@ -545,10 +386,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 4:48",
       "url": "/la-liga/players/miguel-rubio",
-      "clause": 2670000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/forza-depor-3712719",
       "source": "mercado"
     },
     {
@@ -560,10 +397,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 4:48",
       "url": "/la-liga/players/nahuel-tenaglia",
-      "clause": 6120000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/forza-depor-3712719",
       "source": "mercado"
     },
     {
@@ -575,10 +408,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 4:48",
       "url": "/la-liga/players/rodrigo-mendoza",
-      "clause": 1950000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/forza-depor-3712719",
       "source": "mercado"
     },
     {
@@ -590,10 +419,6 @@
       "timeRemaining": "en 2 días",
       "deadline": "29/8/25, 4:48",
       "url": "/la-liga/players/ovie-ejaria",
-      "clause": 255750,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/forza-depor-3712719",
       "source": "mercado"
     },
     {
@@ -605,10 +430,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 22:31",
       "url": "/la-liga/players/jonny",
-      "clause": 5960000,
-      "clauseDeposited": 1000000,
-      "owner": "",
-      "ownerUrl": "/user/kenzoxs-3728853",
       "source": "mercado"
     },
     {
@@ -620,10 +441,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 22:31",
       "url": "/la-liga/players/manu-sanchez",
-      "clause": 2580000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/kenzoxs-3728853",
       "source": "mercado"
     },
     {
@@ -635,10 +452,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 22:31",
       "url": "/la-liga/players/mauro-arambarri",
-      "clause": 9139500,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/kenzoxs-3728853",
       "source": "mercado"
     },
     {
@@ -650,10 +463,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 22:31",
       "url": "/la-liga/players/joan-garcia",
-      "clause": 12600000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/kenzoxs-3728853",
       "source": "mercado"
     },
     {
@@ -665,10 +474,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 22:31",
       "url": "/la-liga/players/ronald-araujo",
-      "clause": 7320000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/kenzoxs-3728853",
       "source": "mercado"
     },
     {
@@ -680,10 +485,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 22:31",
       "url": "/la-liga/players/carlos-martin",
-      "clause": 622500,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/kenzoxs-3728853",
       "source": "mercado"
     },
     {
@@ -695,10 +496,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 22:31",
       "url": "/la-liga/players/tchouameni",
-      "clause": 10065000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/kenzoxs-3728853",
       "source": "mercado"
     },
     {
@@ -710,10 +507,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 22:31",
       "url": "/la-liga/players/pep-chavarria",
-      "clause": 4582500,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/kenzoxs-3728853",
       "source": "mercado"
     },
     {
@@ -725,10 +518,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 22:31",
       "url": "/la-liga/players/pape-gueye",
-      "clause": 10245000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/kenzoxs-3728853",
       "source": "mercado"
     },
     {
@@ -740,10 +529,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 22:31",
       "url": "/la-liga/players/etta-eyong",
-      "clause": 7815000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/kenzoxs-3728853",
       "source": "mercado"
     },
     {
@@ -755,10 +540,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 22:31",
       "url": "/la-liga/players/alvaro-nunez",
-      "clause": 3060000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/kenzoxs-3728853",
       "source": "mercado"
     },
     {
@@ -770,10 +551,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 22:31",
       "url": "/la-liga/players/jeremy-toljan",
-      "clause": 2910000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/kenzoxs-3728853",
       "source": "mercado"
     },
     {
@@ -785,10 +562,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/alvaro-garcia",
-      "clause": 8340000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/o-barqueiro-f-c-3712717",
       "source": "mercado"
     },
     {
@@ -800,10 +573,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/antonio-blanco",
-      "clause": 4275000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/o-barqueiro-f-c-3712717",
       "source": "mercado"
     },
     {
@@ -815,10 +584,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/lejeune",
-      "clause": 7410000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/o-barqueiro-f-c-3712717",
       "source": "mercado"
     },
     {
@@ -830,10 +595,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/lenglet",
-      "clause": 3544740,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/o-barqueiro-f-c-3712717",
       "source": "mercado"
     },
     {
@@ -845,10 +606,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/jesus-areso",
-      "clause": 5673510,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/o-barqueiro-f-c-3712717",
       "source": "mercado"
     },
     {
@@ -860,10 +617,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/dmitrovic",
-      "clause": 6180000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/o-barqueiro-f-c-3712717",
       "source": "mercado"
     },
     {
@@ -875,10 +628,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/javi-puado",
-      "clause": 9606240,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/o-barqueiro-f-c-3712717",
       "source": "mercado"
     },
     {
@@ -890,10 +639,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/andre-almeida-2",
-      "clause": 3060000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/o-barqueiro-f-c-3712717",
       "source": "mercado"
     },
     {
@@ -905,10 +650,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/jon-martin",
-      "clause": 3422265,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/o-barqueiro-f-c-3712717",
       "source": "mercado"
     },
     {
@@ -920,10 +661,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/maroan-sannadi",
-      "clause": 5100750,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/o-barqueiro-f-c-3712717",
       "source": "mercado"
     },
     {
@@ -935,10 +672,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/pedro-diaz",
-      "clause": 5542170,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/o-barqueiro-f-c-3712717",
       "source": "mercado"
     },
     {
@@ -950,10 +683,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:04",
       "url": "/la-liga/players/moi-gomez",
-      "clause": 2530000,
-      "clauseDeposited": 500000,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -965,10 +694,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:04",
       "url": "/la-liga/players/pau-lopez",
-      "clause": 4540000,
-      "clauseDeposited": 500000,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -980,10 +705,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:04",
       "url": "/la-liga/players/ferran-torres",
-      "clause": 9870000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -995,10 +716,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:04",
       "url": "/la-liga/players/edu-exposito-2",
-      "clause": 6345000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -1010,10 +727,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:04",
       "url": "/la-liga/players/pathe-ciss",
-      "clause": 4860000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -1025,10 +738,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:04",
       "url": "/la-liga/players/omar-el-hilali",
-      "clause": 4800000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -1040,10 +749,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:04",
       "url": "/la-liga/players/pablo-marin",
-      "clause": 3720000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -1055,10 +760,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:04",
       "url": "/la-liga/players/alvaro-fernandez-2",
-      "clause": 9660000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -1070,10 +771,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:04",
       "url": "/la-liga/players/marash-kumbulla",
-      "clause": 2640000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -1085,10 +782,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:04",
       "url": "/la-liga/players/r-fernandez",
-      "clause": 6498000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -1100,10 +793,6 @@
       "timeRemaining": "mañana",
       "deadline": "28/8/25, 17:04",
       "url": "/la-liga/players/angel-ortiz",
-      "clause": 286500,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/chacaritas-f-c-3712724",
       "source": "mercado"
     },
     {
@@ -1112,28 +801,20 @@
       "team": "Real Madrid",
       "price": 435000,
       "listedPrice": 290000,
-      "timeRemaining": "mañana",
+      "timeRemaining": "en 12 h",
       "deadline": "28/8/25, 9:17",
       "url": "/la-liga/players/andriy-lunin",
-      "clause": 450000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/palas-c-d-8074955",
       "source": "mercado"
     },
     {
       "name": "Víctor García",
       "position": "DEF",
       "team": "Levante",
-      "price": 620000,
+      "price": 945000,
       "listedPrice": 620000,
-      "timeRemaining": "mañana",
+      "timeRemaining": "en 12 h",
       "deadline": "28/8/25, 9:17",
       "url": "/la-liga/players/victor-garcia",
-      "clause": 1170000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/palas-c-d-8074955",
       "source": "mercado"
     },
     {
@@ -1142,13 +823,9 @@
       "team": "Betis",
       "price": 4215000,
       "listedPrice": 2830000,
-      "timeRemaining": "mañana",
+      "timeRemaining": "en 12 h",
       "deadline": "28/8/25, 9:17",
       "url": "/la-liga/players/natan",
-      "clause": 4395000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/palas-c-d-8074955",
       "source": "mercado"
     },
     {
@@ -1157,13 +834,9 @@
       "team": "Valencia",
       "price": 345000,
       "listedPrice": 270000,
-      "timeRemaining": "mañana",
+      "timeRemaining": "en 12 h",
       "deadline": "28/8/25, 9:17",
       "url": "/la-liga/players/jesus-vazquez",
-      "clause": 405000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/palas-c-d-8074955",
       "source": "mercado"
     },
     {
@@ -1172,13 +845,9 @@
       "team": "Barcelona",
       "price": 26715000,
       "listedPrice": 17820000,
-      "timeRemaining": "mañana",
+      "timeRemaining": "en 12 h",
       "deadline": "28/8/25, 9:17",
       "url": "/la-liga/players/raphinha",
-      "clause": 29595000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/palas-c-d-8074955",
       "source": "mercado"
     },
     {
@@ -1187,13 +856,9 @@
       "team": "Alavés",
       "price": 6465000,
       "listedPrice": 4240000,
-      "timeRemaining": "mañana",
+      "timeRemaining": "en 12 h",
       "deadline": "28/8/25, 9:17",
       "url": "/la-liga/players/carlos-vicente",
-      "clause": 7755000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/palas-c-d-8074955",
       "source": "mercado"
     },
     {
@@ -1202,13 +867,9 @@
       "team": "Villarreal",
       "price": 4215000,
       "listedPrice": 3230000,
-      "timeRemaining": "mañana",
+      "timeRemaining": "en 12 h",
       "deadline": "28/8/25, 9:17",
       "url": "/la-liga/players/tajon-buchanan",
-      "clause": 7867760,
-      "clauseDeposited": 1511380,
-      "owner": "",
-      "ownerUrl": "/user/palas-c-d-8074955",
       "source": "mercado"
     },
     {
@@ -1217,13 +878,9 @@
       "team": "Real Oviedo",
       "price": 2550000,
       "listedPrice": 1680000,
-      "timeRemaining": "mañana",
+      "timeRemaining": "en 12 h",
       "deadline": "28/8/25, 9:17",
       "url": "/la-liga/players/kwasi-sibo",
-      "clause": 4910000,
-      "clauseDeposited": 1000000,
-      "owner": "",
-      "ownerUrl": "/user/palas-c-d-8074955",
       "source": "mercado"
     },
     {
@@ -1232,13 +889,9 @@
       "team": "Levante",
       "price": 240000,
       "listedPrice": 160000,
-      "timeRemaining": "mañana",
+      "timeRemaining": "en 12 h",
       "deadline": "28/8/25, 9:17",
       "url": "/la-liga/players/sergio-lozano",
-      "clause": 270015,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/palas-c-d-8074955",
       "source": "mercado"
     },
     {
@@ -1247,13 +900,9 @@
       "team": "Espanyol",
       "price": 375000,
       "listedPrice": 260000,
-      "timeRemaining": "mañana",
+      "timeRemaining": "en 12 h",
       "deadline": "28/8/25, 9:17",
       "url": "/la-liga/players/jose-salinas",
-      "clause": 450000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/palas-c-d-8074955",
       "source": "mercado"
     },
     {
@@ -1262,13 +911,9 @@
       "team": "Espanyol",
       "price": 1770000,
       "listedPrice": 1240000,
-      "timeRemaining": "mañana",
+      "timeRemaining": "en 12 h",
       "deadline": "28/8/25, 9:17",
       "url": "/la-liga/players/dolan",
-      "clause": 2055000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/palas-c-d-8074955",
       "source": "mercado"
     },
     {
@@ -1277,13 +922,9 @@
       "team": "Getafe",
       "price": 7905000,
       "listedPrice": 5250000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 8 h",
       "deadline": "28/8/25, 5:10",
       "url": "/la-liga/players/david-soria",
-      "clause": 7875000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/tortelliniteam-3713353",
       "source": "mercado"
     },
     {
@@ -1292,13 +933,9 @@
       "team": "Girona",
       "price": 2505000,
       "listedPrice": 1650000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 8 h",
       "deadline": "28/8/25, 5:10",
       "url": "/la-liga/players/david-lopez",
-      "clause": 2910000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/tortelliniteam-3713353",
       "source": "mercado"
     },
     {
@@ -1307,13 +944,9 @@
       "team": "Villarreal",
       "price": 7365000,
       "listedPrice": 4940000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 8 h",
       "deadline": "28/8/25, 5:10",
       "url": "/la-liga/players/yeremi-pino",
-      "clause": 7485000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/tortelliniteam-3713353",
       "source": "mercado"
     },
     {
@@ -1322,13 +955,9 @@
       "team": "Valencia",
       "price": 5010000,
       "listedPrice": 3290000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 8 h",
       "deadline": "28/8/25, 5:10",
       "url": "/la-liga/players/arnaut-danjuma",
-      "clause": 5430000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/tortelliniteam-3713353",
       "source": "mercado"
     },
     {
@@ -1337,13 +966,9 @@
       "team": "Real Madrid",
       "price": 17775000,
       "listedPrice": 11880000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 8 h",
       "deadline": "28/8/25, 5:10",
       "url": "/la-liga/players/arda-guler",
-      "clause": 17820000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/tortelliniteam-3713353",
       "source": "mercado"
     },
     {
@@ -1352,13 +977,9 @@
       "team": "Girona",
       "price": 750000,
       "listedPrice": 490000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 8 h",
       "deadline": "28/8/25, 5:10",
       "url": "/la-liga/players/jhon-solis",
-      "clause": 766500,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/tortelliniteam-3713353",
       "source": "mercado"
     },
     {
@@ -1367,13 +988,9 @@
       "team": "Celta",
       "price": 225000,
       "listedPrice": 150000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 8 h",
       "deadline": "28/8/25, 5:10",
       "url": "/la-liga/players/mihailo-ristic",
-      "clause": 225000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/tortelliniteam-3713353",
       "source": "mercado"
     },
     {
@@ -1382,13 +999,9 @@
       "team": "Celta",
       "price": 705000,
       "listedPrice": 630000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 8 h",
       "deadline": "28/8/25, 5:10",
       "url": "/la-liga/players/javier-rueda",
-      "clause": 2118188,
-      "clauseDeposited": 586594,
-      "owner": "",
-      "ownerUrl": "/user/tortelliniteam-3713353",
       "source": "mercado"
     },
     {
@@ -1397,13 +1010,9 @@
       "team": "Real Sociedad",
       "price": 2925000,
       "listedPrice": 1900000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 8 h",
       "deadline": "28/8/25, 5:10",
       "url": "/la-liga/players/luka-sucic",
-      "clause": 3315000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/tortelliniteam-3713353",
       "source": "mercado"
     },
     {
@@ -1412,13 +1021,9 @@
       "team": "Getafe",
       "price": 1455000,
       "listedPrice": 980000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 8 h",
       "deadline": "28/8/25, 5:10",
       "url": "/la-liga/players/bekhoucha",
-      "clause": 2079600,
-      "clauseDeposited": 304800,
-      "owner": "",
-      "ownerUrl": "/user/tortelliniteam-3713353",
       "source": "mercado"
     },
     {
@@ -1427,13 +1032,9 @@
       "team": "Real Madrid",
       "price": 15750000,
       "listedPrice": 10520000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 8 h",
       "deadline": "28/8/25, 5:10",
       "url": "/la-liga/players/dean-huijsen",
-      "clause": 15780000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/tortelliniteam-3713353",
       "source": "mercado"
     },
     {
@@ -1442,13 +1043,9 @@
       "team": "Mallorca",
       "price": 2940000,
       "listedPrice": 1970000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 8 h",
       "deadline": "28/8/25, 5:10",
       "url": "/la-liga/players/mateo-joseph",
-      "clause": 2955000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/tortelliniteam-3713353",
       "source": "mercado"
     },
     {
@@ -1457,13 +1054,9 @@
       "team": "Espanyol",
       "price": 3240000,
       "listedPrice": 3160000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/kike-garcia",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -1472,13 +1065,9 @@
       "team": "Valencia",
       "price": 3970000,
       "listedPrice": 3880000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/hugo-duro",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -1487,13 +1076,9 @@
       "team": "Rayo Vallecano",
       "price": 5030000,
       "listedPrice": 5090000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/jorge-de-frutos",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -1502,13 +1087,9 @@
       "team": "Atlético",
       "price": 1540000,
       "listedPrice": 1490000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/marc-pubill",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -1517,13 +1098,9 @@
       "team": "Sevilla",
       "price": 150000,
       "listedPrice": 150000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/manu-bueno",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -1532,13 +1109,9 @@
       "team": "Villarreal",
       "price": 5510000,
       "listedPrice": 5340000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/alberto-moleiro",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -1547,13 +1120,9 @@
       "team": "Mallorca",
       "price": 150000,
       "listedPrice": 150000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 5:00",
       "url": "/la-liga/players/lucas-bergstrom",
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
       "source": "mercado"
     },
     {
@@ -1562,13 +1131,9 @@
       "team": "Getafe",
       "price": 2500000,
       "listedPrice": 340000,
-      "timeRemaining": "en 11 h",
+      "timeRemaining": "en 7 h",
       "deadline": "28/8/25, 4:57",
       "url": "/la-liga/players/domingos-duarte",
-      "clause": 510000,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/emre-team-6720619",
       "source": "mercado"
     },
     {
@@ -1577,13 +1142,9 @@
       "team": "Villarreal",
       "price": 31200000,
       "listedPrice": 3200000,
-      "timeRemaining": "en 4 h",
+      "timeRemaining": "en 27 min",
       "deadline": "27/8/25, 21:57",
       "url": "/la-liga/players/renato-veiga",
-      "clause": 5490031,
-      "clauseDeposited": null,
-      "owner": "",
-      "ownerUrl": "/user/emre-team-6720619",
       "source": "mercado"
     }
   ]
