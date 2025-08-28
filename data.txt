@@ -1,16 +1,9 @@
 {
-  "scrapedAt": "2025-08-28T05:53:38.541Z",
+  "scrapedAt": "2025-08-28T06:18:31.446Z",
   "leagueId": "drbLSZtcWd7r",
   "balance": 4564700,
   "team": [
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Remiro",
       "position": "PT",
       "team": "Real Sociedad",
@@ -19,13 +12,6 @@
       "source": "equipo"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Ricardo Rodríguez",
       "position": "DEF",
       "team": "Betis",
@@ -34,13 +20,6 @@
       "source": "equipo"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Le Normand",
       "position": "DEF",
       "team": "Atlético",
@@ -49,13 +28,6 @@
       "source": "equipo"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Francés",
       "position": "DEF",
       "team": "Girona",
@@ -64,13 +36,6 @@
       "source": "equipo"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Valverde",
       "position": "MED",
       "team": "Real Madrid",
@@ -79,13 +44,6 @@
       "source": "equipo"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Dani Rodríguez",
       "position": "MED",
       "team": "Mallorca",
@@ -94,13 +52,6 @@
       "source": "equipo"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Óscar Valentín",
       "position": "MED",
       "team": "Rayo Vallecano",
@@ -109,13 +60,6 @@
       "source": "equipo"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Endrick",
       "position": "DEL",
       "team": "Real Madrid",
@@ -126,13 +70,6 @@
   ],
   "market": [
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "David López",
       "position": "DEF",
       "team": "Girona",
@@ -144,13 +81,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Yéremy Pino",
       "position": "DEL",
       "team": "Villarreal",
@@ -162,13 +92,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Danjuma",
       "position": "DEL",
       "team": "Valencia",
@@ -180,13 +103,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Arda Güler",
       "position": "MED",
       "team": "Real Madrid",
@@ -198,13 +114,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Jhon Solís",
       "position": "MED",
       "team": "Girona",
@@ -216,13 +125,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Ristic",
       "position": "DEF",
       "team": "Celta",
@@ -234,13 +136,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Javier Rueda",
       "position": "DEF",
       "team": "Celta",
@@ -252,13 +147,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Luka Sucic",
       "position": "MED",
       "team": "Real Sociedad",
@@ -270,13 +158,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Dean Huijsen",
       "position": "DEF",
       "team": "Real Madrid",
@@ -288,13 +169,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Pablo Campos",
       "position": "PT",
       "team": "Levante",
@@ -306,13 +180,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Mateo Joseph",
       "position": "DEL",
       "team": "Mallorca",
@@ -324,13 +191,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Juanmi",
       "position": "DEL",
       "team": "Getafe",
@@ -342,13 +202,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Rüdiger",
       "position": "DEF",
       "team": "Real Madrid",
@@ -360,13 +213,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Álvaro Fernández",
       "position": "PT",
       "team": "Sevilla",
@@ -378,13 +224,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Mariano",
       "position": "DEL",
       "team": "Alavés",
@@ -396,13 +235,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Correia",
       "position": "DEF",
       "team": "Valencia",
@@ -414,13 +246,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Vencedor",
       "position": "MED",
       "team": "Athletic",
@@ -432,13 +257,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Miovski",
       "position": "DEL",
       "team": "Girona",
@@ -450,13 +268,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Javi Llabrés",
       "position": "DEL",
       "team": "Mallorca",
@@ -468,13 +279,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Mumin",
       "position": "DEF",
       "team": "Rayo Vallecano",
@@ -486,13 +290,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Marc Casadó",
       "position": "MED",
       "team": "Barcelona",
@@ -504,13 +301,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Marc Domenech",
       "position": "DEL",
       "team": "Mallorca",
@@ -522,13 +312,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Morales",
       "position": "DEL",
       "team": "Levante",
@@ -540,13 +323,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Denis Suárez",
       "position": "MED",
       "team": "Villarreal",
@@ -558,13 +334,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Mascarell",
       "position": "MED",
       "team": "Mallorca",
@@ -576,13 +345,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Alex Sola",
       "position": "MED",
       "team": "Getafe",
@@ -594,13 +356,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Pere Milla",
       "position": "DEL",
       "team": "Espanyol",
@@ -612,13 +367,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Leo Román",
       "position": "PT",
       "team": "Mallorca",
@@ -630,13 +378,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Mbappé",
       "position": "DEL",
       "team": "Real Madrid",
@@ -648,13 +389,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Ilaix Moriba",
       "position": "MED",
       "team": "Celta",
@@ -666,13 +400,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Miguel Rubio",
       "position": "DEF",
       "team": "Espanyol",
@@ -684,13 +411,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Tenaglia",
       "position": "DEF",
       "team": "Alavés",
@@ -702,13 +422,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Alhassane",
       "position": "DEF",
       "team": "Real Oviedo",
@@ -720,13 +433,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Mendoza",
       "position": "MED",
       "team": "Elche",
@@ -738,13 +444,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Ejaria",
       "position": "DEL",
       "team": "Real Oviedo",
@@ -756,13 +455,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Paredes",
       "position": "DEF",
       "team": "Athletic",
@@ -774,13 +466,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Renato Veiga",
       "position": "DEF",
       "team": "Villarreal",
@@ -792,13 +477,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Luiz Júnior",
       "position": "PT",
       "team": "Villarreal",
@@ -810,13 +488,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Domingos Duarte",
       "position": "DEF",
       "team": "Getafe",
@@ -828,13 +499,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Catena",
       "position": "DEF",
       "team": "Osasuna",
@@ -846,13 +510,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Jonny Castro",
       "position": "DEF",
       "team": "Alavés",
@@ -864,13 +521,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Manu Sánchez",
       "position": "DEF",
       "team": "Levante",
@@ -882,13 +532,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Arambarri",
       "position": "MED",
       "team": "Getafe",
@@ -900,13 +543,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Joan García",
       "position": "PT",
       "team": "Barcelona",
@@ -918,13 +554,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Ronald Araújo",
       "position": "DEF",
       "team": "Barcelona",
@@ -936,13 +565,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Carlos Martín",
       "position": "DEL",
       "team": "Atlético",
@@ -954,13 +576,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Tchouameni",
       "position": "MED",
       "team": "Real Madrid",
@@ -972,13 +587,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Chavarría",
       "position": "DEF",
       "team": "Rayo Vallecano",
@@ -990,13 +598,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Pape Gueye",
       "position": "MED",
       "team": "Villarreal",
@@ -1008,13 +609,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Etta Eyong",
       "position": "DEL",
       "team": "Villarreal",
@@ -1026,13 +620,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Álvaro Núñez",
       "position": "DEF",
       "team": "Elche",
@@ -1044,13 +631,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Toljan",
       "position": "DEF",
       "team": "Levante",
@@ -1062,13 +642,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Bellerín",
       "position": "DEF",
       "team": "Betis",
@@ -1080,13 +653,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Iván Romero",
       "position": "DEL",
       "team": "Levante",
@@ -1098,13 +664,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Balde",
       "position": "DEF",
       "team": "Barcelona",
@@ -1116,13 +675,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Ejuke",
       "position": "DEL",
       "team": "Sevilla",
@@ -1134,13 +686,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Rodrygo",
       "position": "DEL",
       "team": "Real Madrid",
@@ -1152,13 +697,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Sotelo",
       "position": "MED",
       "team": "Celta",
@@ -1170,13 +708,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Lo Celso",
       "position": "MED",
       "team": "Betis",
@@ -1188,13 +719,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Manu Fernández",
       "position": "DEF",
       "team": "Celta",
@@ -1206,13 +730,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Sivera",
       "position": "PT",
       "team": "Alavés",
@@ -1224,13 +741,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Ceballos",
       "position": "MED",
       "team": "Real Madrid",
@@ -1242,13 +752,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Bakambu",
       "position": "DEL",
       "team": "Betis",
@@ -1260,13 +763,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Roro Riquelme",
       "position": "MED",
       "team": "Betis",
@@ -1278,13 +774,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Diakhaby",
       "position": "DEF",
       "team": "Valencia",
@@ -1296,13 +785,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Cazorla",
       "position": "MED",
       "team": "Real Oviedo",
@@ -1314,13 +796,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Bretones",
       "position": "DEF",
       "team": "Osasuna",
@@ -1332,13 +807,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Pablo Ramón",
       "position": "DEF",
       "team": "Espanyol",
@@ -1350,13 +818,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Ahijado",
       "position": "DEF",
       "team": "Real Oviedo",
@@ -1368,13 +829,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Odysseas",
       "position": "PT",
       "team": "Sevilla",
@@ -1386,211 +840,127 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Álvaro García",
       "position": "DEL",
       "team": "Rayo Vallecano",
       "price": 11040000,
       "listedPrice": 5600000,
-      "timeRemaining": "en 12 h",
+      "timeRemaining": "en 11 h",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/alvaro-garcia",
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Antonio Blanco",
       "position": "MED",
       "team": "Alavés",
       "price": 5660000,
       "listedPrice": 2860000,
-      "timeRemaining": "en 12 h",
+      "timeRemaining": "en 11 h",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/antonio-blanco",
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Lejeune",
       "position": "DEF",
       "team": "Rayo Vallecano",
       "price": 9900000,
       "listedPrice": 4930000,
-      "timeRemaining": "en 12 h",
+      "timeRemaining": "en 11 h",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/lejeune",
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Lenglet",
       "position": "DEF",
       "team": "Atlético",
       "price": 2660000,
       "listedPrice": 1260000,
-      "timeRemaining": "en 12 h",
+      "timeRemaining": "en 11 h",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/lenglet",
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Areso",
       "position": "DEF",
       "team": "Athletic",
       "price": 7280000,
       "listedPrice": 3650000,
-      "timeRemaining": "en 12 h",
+      "timeRemaining": "en 11 h",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/jesus-areso",
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Dmitrovic",
       "position": "PT",
       "team": "Espanyol",
       "price": 8280000,
       "listedPrice": 4110000,
-      "timeRemaining": "en 12 h",
+      "timeRemaining": "en 11 h",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/dmitrovic",
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Puado",
       "position": "DEL",
       "team": "Espanyol",
       "price": 12620000,
       "listedPrice": 6420000,
-      "timeRemaining": "en 12 h",
+      "timeRemaining": "en 11 h",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/javi-puado",
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "André Almeida",
       "position": "MED",
       "team": "Valencia",
       "price": 3360000,
       "listedPrice": 1590000,
-      "timeRemaining": "en 12 h",
+      "timeRemaining": "en 11 h",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/andre-almeida-2",
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Jon Martín",
       "position": "DEF",
       "team": "Real Sociedad",
       "price": 3240000,
       "listedPrice": 1580000,
-      "timeRemaining": "en 12 h",
+      "timeRemaining": "en 11 h",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/jon-martin",
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Sannadi",
       "position": "DEL",
       "team": "Athletic",
       "price": 6520000,
       "listedPrice": 3240000,
-      "timeRemaining": "en 12 h",
+      "timeRemaining": "en 11 h",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/maroan-sannadi",
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Pedro Díaz",
       "position": "MED",
       "team": "Rayo Vallecano",
       "price": 6560000,
       "listedPrice": 3190000,
-      "timeRemaining": "en 12 h",
+      "timeRemaining": "en 11 h",
       "deadline": "28/8/25, 17:41",
       "url": "/la-liga/players/pedro-diaz",
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Moi Gómez",
       "position": "MED",
       "team": "Osasuna",
@@ -1602,13 +972,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Pau López",
       "position": "PT",
       "team": "Betis",
@@ -1620,13 +983,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Ferran Torres",
       "position": "DEL",
       "team": "Barcelona",
@@ -1638,13 +994,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Expósito",
       "position": "MED",
       "team": "Espanyol",
@@ -1656,13 +1005,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Pathé Ciss",
       "position": "MED",
       "team": "Rayo Vallecano",
@@ -1674,13 +1016,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "El Hilali",
       "position": "DEF",
       "team": "Espanyol",
@@ -1692,13 +1027,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Pablo Marín",
       "position": "MED",
       "team": "Real Sociedad",
@@ -1710,13 +1038,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Álvaro Carreras",
       "position": "DEF",
       "team": "Real Madrid",
@@ -1728,13 +1049,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Kumbulla",
       "position": "DEF",
       "team": "Mallorca",
@@ -1746,13 +1060,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Roberto Fernández",
       "position": "DEL",
       "team": "Espanyol",
@@ -1764,13 +1071,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Angel Ortiz",
       "position": "DEF",
       "team": "Betis",
@@ -1782,13 +1082,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Lunin",
       "position": "PT",
       "team": "Real Madrid",
@@ -1800,13 +1093,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Víctor García",
       "position": "DEF",
       "team": "Levante",
@@ -1818,13 +1104,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Natan",
       "position": "DEF",
       "team": "Betis",
@@ -1836,13 +1115,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Jesús Vázquez",
       "position": "DEF",
       "team": "Valencia",
@@ -1854,13 +1126,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Raphinha",
       "position": "DEL",
       "team": "Barcelona",
@@ -1872,13 +1137,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Carlos Vicente",
       "position": "DEL",
       "team": "Alavés",
@@ -1890,13 +1148,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Buchanan",
       "position": "MED",
       "team": "Villarreal",
@@ -1908,13 +1159,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Sibo",
       "position": "MED",
       "team": "Real Oviedo",
@@ -1926,13 +1170,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Sergio Lozano",
       "position": "MED",
       "team": "Levante",
@@ -1944,13 +1181,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Salinas",
       "position": "DEF",
       "team": "Espanyol",
@@ -1962,13 +1192,6 @@
       "source": "mercado"
     },
     {
-      "clause": null,
-      "clauseDeposited": null,
-      "owner": null,
-      "ownerUrl": null,
-      "clauseUnlockAt": null,
-      "clauseUnlockIn": null,
-      "clauseUnlockDays": null,
       "name": "Dolan",
       "position": "DEL",
       "team": "Espanyol",
