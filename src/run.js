@@ -297,32 +297,11 @@ async function enrichFromProfile(context, players, concurrency = 5) {
             }
 
             return { clause, clauseDeposited, owner, ownerUrl, clauseUnlockAt, clauseUnlockIn };
-          }).catch(() => ({}));
-
-          // calcular días restantes para desbloquear la cláusula
-          let clauseUnlockDays = null;
-          if (details.clauseUnlockAt) {
-            const m = details.clauseUnlockAt.match(/(\d{1,2})\/(\d{1,2})\/(\d{2,4}),\s*(\d{1,2}):(\d{2})/);
-            if (m) {
-              let [ , d, mo, y, h, mi ] = m;
-              const year = y.length === 2 ? 2000 + Number(y) : Number(y);
-              const date = new Date(year, Number(mo)-1, Number(d), Number(h), Number(mi));
-              const diff = date.getTime() - Date.now();
-              if (!isNaN(diff)) clauseUnlockDays = Math.ceil(diff / (1000 * 60 * 60 * 24));
-            }
-          }
+          });
 
           out[i] = {
-            clause: null,
-            clauseDeposited: null,
-            owner: null,
-            ownerUrl: null,
-            clauseUnlockAt: null,
-            clauseUnlockIn: null,
-            clauseUnlockDays: null,
             ...out[i],
-            ...details,
-            clauseUnlockDays
+            ...details
           };
         } catch { /* continuar con el resto */ }
       }
