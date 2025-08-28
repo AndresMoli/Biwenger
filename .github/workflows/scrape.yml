@@ -3,9 +3,9 @@ on:
   # schedule:
   #   - cron: '0 5 * * *'   # 07:00 hora España
   workflow_dispatch: {}
-  #push:
-    #paths:
-      #- 'src/run.js'
+  push:
+    paths:
+      - 'src/run.js'
       #- '**/*.yml'
 
 permissions:
