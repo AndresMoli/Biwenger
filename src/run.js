@@ -289,14 +289,14 @@ async function enrichFromProfile(context, players, concurrency = 5) {
             }
 
             // Cláusula desbloqueada (si existe)
-            /*let clauseUnlockAt = null, clauseUnlockIn = null;
-            const unlockNode = document.querySelector('div:has-text("Cláusula desbloqueada") time-relative');
-            if (unlockNode) {
-              clauseUnlockAt = unlockNode.getAttribute('title') || null;
-              clauseUnlockIn = C(unlockNode.textContent || '');
-            }*/
+            let clauseUnlockIn = null;
+            const clauseNode = document.querySelector('player-clause[title*="Cláusula desbloqueada"]');
+            if (clauseNode) {
+              const title = clauseNode.getAttribute('title') || '';
+              clauseUnlockIn = C(title.replace(/Cláusula desbloqueada en/i, ''));
+            }
 
-            return { clause, clauseDeposited, owner, ownerUrl/*, clauseUnlockAt, clauseUnlockIn */};
+            return { clause, clauseDeposited, owner, ownerUrl, clauseUnlockIn };
           });
 
           out[i] = {
