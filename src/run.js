@@ -288,13 +288,32 @@ async function enrichFromProfile(context, players, concurrency = 5) {
               ownerUrl = ownerLink.getAttribute('href') || null;
             }
 
-            // Cláusula desbloqueada (si existe)
+            // Cláusula desbloqueada / disponible
             let clauseUnlockIn = null;
-            const clauseNode = document.querySelector('player-clause[title*="Cláusula desbloqueada"]');
-            if (clauseNode) {
-              const title = clauseNode.getAttribute('title') || '';
-              clauseUnlockIn = C(title.replace(/Cláusula desbloqueada en/i, ''));
+            const clauseRoot = document.querySelector('player-clause');
+            
+            // Caso principal: el <div> interno trae el title con el estado
+            const unlockDiv = clauseRoot?.querySelector('div[title]');
+            if (unlockDiv) {
+              const t = (unlockDiv.getAttribute('title') || '').trim();
+            
+              if (/Cláusula desbloqueada/i.test(t)) {
+                // Ej: "Cláusula desbloqueada en 3 días" -> queremos "en 3 días"
+                const m = t.match(/Cláusula desbloqueada\s+(.*)$/i);
+                clauseUnlockIn = m ? m[1].trim() : t;
+              } else if (/Si se realiza una oferta igual o superior/i.test(t)) {
+                // Texto que aparece cuando YA se puede pagar la cláusula
+                clauseUnlockIn = 'Disponible';
+              } else {
+                // Por si Biwenger cambia el copy: si no hay "desbloqueada" asumimos disponible
+                clauseUnlockIn = 'Disponible';
+              }
+            } else {
+              // Fallback: si no hay title, usa la clase "disabled" del span para inferirlo
+              const isDisabled = !!clauseRoot?.querySelector('span.disabled');
+              clauseUnlockIn = isDisabled ? clauseUnlockIn /* se queda null si no hay dato */ : 'Disponible';
             }
+
 
             return { clause, clauseDeposited, owner, ownerUrl, clauseUnlockIn };
           });
