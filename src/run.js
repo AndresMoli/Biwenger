@@ -284,7 +284,12 @@ async function enrichFromProfile(context, players, concurrency = 5) {
             const ownerLink = document.querySelector('div:has(> user-link) a[href^="/user/"]') ||
                               document.querySelector('a[href^="/user/"]');
             if (ownerLink) {
-              owner = C(ownerLink.textContent);
+              const ownerText = ownerLink.textContent ||
+                                ownerLink.getAttribute('aria-label') ||
+                                ownerLink.getAttribute('title') ||
+                                ownerLink.querySelector('img')?.getAttribute('alt');
+              const cleaned = C(ownerText || '');
+              owner = cleaned || null;
               ownerUrl = ownerLink.getAttribute('href') || null;
             }
 
