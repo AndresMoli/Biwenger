@@ -2,8 +2,9 @@ name: Scrape Biwenger
 on:
   # schedule:
   #   - cron: '0 5 * * *'   # 07:00 hora España
-  workflow_dispatch: {}
   push:
+    branches:
+      - main
     paths:
       - 'src/run.js'
       #- '**/*.yml'
