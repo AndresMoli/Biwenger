@@ -14,7 +14,10 @@ Este proyecto automatiza la extracción de datos de **Biwenger** (tu equipo y el
 3. Guarda:
    - `data.json` con toda la información estructurada.
    - Capturas de pantalla (`public/*.png`) para depuración.
+   - Grabaciones de vídeo (`public/videos/*.webm`).
 4. Publica todo en **GitHub Pages** (rama `gh-pages`).
+
+> ℹ️ Los vídeos se guardan en todas las ejecuciones. Si prefieres conservarlos solo en caso de error, cambia `KEEP_VIDEO_ON_SUCCESS` a `false` en `src/run.js`.
 
 ---
 
@@ -25,9 +28,10 @@ Este proyecto automatiza la extracción de datos de **Biwenger** (tu equipo y el
   - `.github/workflows/` → Workflow de GitHub Actions.
 
 - **[gh-pages](https://github.com/andresmoli/Biwenger/tree/gh-pages)** → Resultados publicados.
-  - [`data.json`](https://raw.githubusercontent.com/andresmoli/Biwenger/gh-pages/data.json) → Datos estructurados (equipo + mercado + saldo).
-  - [`99-ok.png`](https://andresmoli.github.io/Biwenger/99-ok.png) → Captura final de la ejecución.
-  - [`04-equipo.png`](https://andresmoli.github.io/Biwenger/04-equipo.png) → Imagen completa de tu plantilla.
+- [`data.json`](https://raw.githubusercontent.com/andresmoli/Biwenger/gh-pages/data.json) → Datos estructurados (equipo + mercado + saldo).
+- [`99-ok.png`](https://andresmoli.github.io/Biwenger/99-ok.png) → Captura final de la ejecución.
+- [`04-equipo.png`](https://andresmoli.github.io/Biwenger/04-equipo.png) → Imagen completa de tu plantilla.
+ - `videos/` → Grabaciones de cada ejecución.
 
 ---
 
