@@ -20,8 +20,8 @@ if (!BIWENGER_EMAIL || !BIWENGER_PASSWORD || !LIGA_ID) {
 const OUT_PATH = PUBLIC_OUT_PATH || './public/data.json';
 const OUT_DIR  = path.dirname(OUT_PATH);
 const VIDEO_DIR = path.join(OUT_DIR, 'videos');
-// Cambia a `false` para guardar el vídeo solo en caso de error
-const KEEP_VIDEO_ON_SUCCESS = true;
+// Cambia a `true` para guardar el vídeo también cuando no hay error
+const KEEP_VIDEO_ON_SUCCESS = false;
 const GIST_FILE = GIST_FILENAME || 'data.json';
 
 // ------------ Utilidades ------------
@@ -424,13 +424,16 @@ async function run() {
     await snap(page, 'error');
     process.exitCode = 1;
   } finally {
-    await page.close();
-    let rawVideoPath = null;
-    try { rawVideoPath = await page.video().path(); } catch {}
+    const video = page.video();
+    try { await page.close(); } catch {}
     await browser.close();
-    if (rawVideoPath) {
+    if (video) {
+      await ensureDir(VIDEO_DIR);
       const finalVideoPath = path.join(VIDEO_DIR, `run_${tsFile}.webm`);
-      try { fs.renameSync(rawVideoPath, finalVideoPath); } catch {}
+      try {
+        await video.saveAs(finalVideoPath);
+        await video.delete();
+      } catch {}
       if (process.exitCode === 0 && !KEEP_VIDEO_ON_SUCCESS) {
         try { fs.unlinkSync(finalVideoPath); } catch {}
       }
