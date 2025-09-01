@@ -19,6 +19,9 @@ if (!BIWENGER_EMAIL || !BIWENGER_PASSWORD || !LIGA_ID) {
 
 const OUT_PATH = PUBLIC_OUT_PATH || './public/data.json';
 const OUT_DIR  = path.dirname(OUT_PATH);
+const VIDEO_DIR = path.join(OUT_DIR, 'videos');
+// Cambia a `false` para guardar el vídeo solo en caso de error
+const KEEP_VIDEO_ON_SUCCESS = true;
 const GIST_FILE = GIST_FILENAME || 'data.json';
 
 // ------------ Utilidades ------------
@@ -343,6 +346,7 @@ async function enrichFromProfile(context, players, concurrency = 5) {
 
 // ------------ Run ------------
 async function run() {
+  await ensureDir(VIDEO_DIR);
   const browser = await chromium.launch({
     headless: true,
     args: ['--no-sandbox','--disable-dev-shm-usage']
@@ -351,13 +355,19 @@ async function run() {
     viewport: { width: 1366, height: 850 },
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36',
     locale: 'es-ES',
-    extraHTTPHeaders: { 'Accept-Language': 'es-ES,es;q=0.9' }
+    extraHTTPHeaders: { 'Accept-Language': 'es-ES,es;q=0.9' },
+    recordVideo: { dir: VIDEO_DIR, size: { width: 1366, height: 850 } }
   });
 
   // bloquea imágenes/campañas que suelen crear overlays
   await context.route('**/*campaigns/**', r => r.abort());
   await context.route('**/cdn-cgi/image/**/campaigns/**', r => r.abort());
   const page = await context.newPage();
+  const now = new Date();
+  const tsFile = now.toISOString()
+    .replace(/[-:]/g,'')
+    .slice(0,13)        // YYYYMMDDTHHMM
+    .replace('T','_');
 
   try {
     // 1) Login y liga
@@ -382,11 +392,6 @@ async function run() {
     console.log(`✅ Mercado: ${market.length} | Saldo: ${balance ?? 'n/d'}`);
 
     // Guardado principal + histórico con timestamp
-    const now = new Date();
-    const tsFile = now.toISOString()
-      .replace(/[-:]/g,'')
-      .slice(0,13)        // YYYYMMDDTHHMM
-      .replace('T','_');
     const histDir = path.join(OUT_DIR, 'historicos');
     await ensureDir(histDir);
 
@@ -419,7 +424,17 @@ async function run() {
     await snap(page, 'error');
     process.exitCode = 1;
   } finally {
+    await page.close();
+    let rawVideoPath = null;
+    try { rawVideoPath = await page.video().path(); } catch {}
     await browser.close();
+    if (rawVideoPath) {
+      const finalVideoPath = path.join(VIDEO_DIR, `run_${tsFile}.webm`);
+      try { fs.renameSync(rawVideoPath, finalVideoPath); } catch {}
+      if (process.exitCode === 0 && !KEEP_VIDEO_ON_SUCCESS) {
+        try { fs.unlinkSync(finalVideoPath); } catch {}
+      }
+    }
   }
 }
 
