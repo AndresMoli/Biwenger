@@ -31,7 +31,7 @@ Este proyecto automatiza la extracción de datos de **Biwenger** (tu equipo y el
   - [`data.json`](https://raw.githubusercontent.com/andresmoli/Biwenger/gh-pages/data.json) → Datos estructurados (equipo + mercado + saldo).
   - [`99-ok.png`](https://andresmoli.github.io/Biwenger/99-ok.png) → Captura final de la ejecución.
   - [`04-equipo.png`](https://andresmoli.github.io/Biwenger/04-equipo.png) → Imagen completa de tu plantilla.
-  - [`videos/`](https://andresmoli.github.io/Biwenger/videos/) → Grabaciones de cada ejecución.
+  - [`videos/`](https://andresmoli.github.io/Biwenger/videos) → Grabaciones de cada ejecución en caso de fallo.
 
 ---
 
