@@ -1,7 +1,7 @@
 name: Scrape Biwenger
 on:
-  # schedule:
-  #   - cron: '0 5 * * *'   # 07:00 hora España
+  schedule:
+    - cron: '0 5 * * 1,3,4,5'   # 07:00 Europe/Madrid
   push:
     branches:
       - main
