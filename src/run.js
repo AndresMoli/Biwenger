@@ -1,6 +1,7 @@
 import { chromium } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
+import os from 'os';
 
 const {
   BIWENGER_EMAIL,
@@ -333,7 +334,9 @@ async function enrichFromProfile(context, players, concurrency = 5) {
         } catch { /* continuar con el resto */ }
       }
     } finally {
-      await page.close();
+      const v = page.video();
+      try { await page.close(); } catch {}
+      if (v) { try { await v.delete(); } catch {} }
     }
   }
 
@@ -346,7 +349,7 @@ async function enrichFromProfile(context, players, concurrency = 5) {
 
 // ------------ Run ------------
 async function run() {
-  await ensureDir(VIDEO_DIR);
+  const tempVideoDir = fs.mkdtempSync(path.join(os.tmpdir(), 'bwvideo-'));
   const browser = await chromium.launch({
     headless: true,
     args: ['--no-sandbox','--disable-dev-shm-usage']
@@ -356,7 +359,7 @@ async function run() {
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36',
     locale: 'es-ES',
     extraHTTPHeaders: { 'Accept-Language': 'es-ES,es;q=0.9' },
-    recordVideo: { dir: VIDEO_DIR, size: { width: 1366, height: 850 } }
+    recordVideo: { dir: tempVideoDir, size: { width: 1366, height: 850 } }
   });
 
   // bloquea imágenes/campañas que suelen crear overlays
@@ -368,6 +371,7 @@ async function run() {
     .replace(/[-:]/g,'')
     .slice(0,13)        // YYYYMMDDTHHMM
     .replace('T','_');
+  let hadError = false;
 
   try {
     // 1) Login y liga
@@ -423,6 +427,7 @@ async function run() {
     console.error('❌ Error:', e?.message || e);
     await snap(page, 'error');
     process.exitCode = 1;
+    hadError = true;
   } finally {
     const video = page.video();
     try { await page.close(); } catch {}
@@ -434,10 +439,11 @@ async function run() {
         await video.saveAs(finalVideoPath);
         await video.delete();
       } catch {}
-      if (process.exitCode === 0 && !KEEP_VIDEO_ON_SUCCESS) {
+      if (!hadError && !KEEP_VIDEO_ON_SUCCESS) {
         try { fs.unlinkSync(finalVideoPath); } catch {}
       }
     }
+    try { fs.rmSync(tempVideoDir, { recursive: true, force: true }); } catch {}
   }
 }
 
