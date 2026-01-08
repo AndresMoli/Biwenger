@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node src/run.js"
+    "start": "node src/run.js",
+    "report": "node src/agent.js"
   },
   "dependencies": {
     "@playwright/test": "^1.46.0"
